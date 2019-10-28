@@ -16,7 +16,7 @@ class login extends Controller
     {
 
         $data = array('');
-        $this->view('login', $data, 1, 1);
+        $this->view('login/index', $data, 1, 1);
     }
     function logout()
     {
