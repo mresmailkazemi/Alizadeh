@@ -1,4 +1,4 @@
 <?php
 
-define('URL','http://127.0.0.1/Alizadehclub/');
+define('URL','http://127.0.0.1/Alizadeh/');
 ?>
