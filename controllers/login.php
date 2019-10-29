@@ -2,6 +2,10 @@
 
 class login extends Controller
 {
+    /**
+     * @var model_login
+     */
+    protected $modelobject;
     function __construct()
     {
         parent::__construct();
@@ -28,10 +32,10 @@ class login extends Controller
     {
         $error = $this->modelobject->validation();
         if ($error != "") {
-            header('location:' . URL . 'index/index?error=' . $error);
+            header('location:' . URL . 'login/index?error=' . $error);
             return;
         }
-        $result= $this->modelobject->checkUser();
+     $result= $this->modelobject->checkUser();
         if(sizeof($result)>0){
             $login= $this->modelobject->goCheckPass($result);
             if($login==1){

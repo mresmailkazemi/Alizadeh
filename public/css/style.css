@@ -2295,7 +2295,7 @@ ul {
   color: #ffffff !important;
   font-size: 14px;
   padding: 0px 22px !important;
-  font-family: "iranyekan", sans-serif;
+  font-family: "iranyekan";
   text-transform: uppercase;
 }
 
@@ -3674,7 +3674,7 @@ ul {
   border-radius: 0px;
   padding: .375rem 0rem;
   font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "iranyekan";
   margin-bottom: 45px;
   padding-bottom: 15px;
   height: 40px;
@@ -3994,7 +3994,7 @@ ul {
 /* line 147, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_review.scss */
 .review_part .client_review_single .client_review_text p {
   font-size: 16px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "iranyekan";
   color: #888888;
   font-style: italic;
   line-height: 1.875;

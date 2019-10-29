@@ -2,6 +2,7 @@
 
 class Controller{
 
+    protected $modelobject;
     function __construct()
     {
     }
@@ -24,7 +25,6 @@ class Controller{
 
     }
     function model($modelUrl){
-
         require ('models/model_'.$modelUrl.'.php');
         $classname='model_'.$modelUrl;
         $this->modelobject=new $classname;

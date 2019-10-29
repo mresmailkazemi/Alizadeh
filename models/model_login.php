@@ -24,26 +24,40 @@ class model_login extends model
 
     function checkUser()
     {
-        $sql = "SELECT * FROM tbl_user WHERE username=?";
+        $sql = "SELECT * FROM tbl_user WHERE mobile=?";
         $stmt = self::$conn->prepare($sql);
-        $stmt->bindValue(1, @$_POST['username']);
+        $stmt->bindValue(1, @$_POST['mobile']);
         $stmt->execute();
         $result = $stmt->fetchAll(pdo::FETCH_ASSOC);
         return $result;
+        
 
     }
 
     function validation()
     {
         $flag = "";
-        if (@$_POST['username'] == null || @$_POST['password'] == null) {
+        if (@$_POST['mobile'] == null || @$_POST['password'] == null) {
             return $flag = "پسورد یا نام کابری نمی تواند خالی باشد";
         }
-        $lenghtuser = strlen(@$_POST['username']);
+        $lenghtmobile = strlen(@$_POST['mobile']);
         $lenghtpass = strlen(@$_POST['password']);
-        if ($lenghtpass > 100 || $lenghtuser > 200) {
-            return $flag = "مقادیر بیش از انداه استاندارد";
+        if ($lenghtmobile !=11) {
+            return $flag = "شماره موبایل به صورت صحیح وارد شود";
         }
+        if
+            ($lenghtpass >20)
+        {
+            return $flag="رمز عبور بیش از حد مجاز است";
+        }
+        if
+        ($lenghtpass < 6)
+        {
+            return $flag="رمز عبور حداقل 6 رقمی باید باشد";
+        }
+        if (!is_numeric($_POST['mobile']))
+        return $flag="شماره همراه نامعتبر است";
+
         return $flag;
     }
 }

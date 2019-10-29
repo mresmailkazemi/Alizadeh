@@ -35,26 +35,31 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" action="<?=URL?>index/checkUser" method="post">
+            <form class="login100-form validate-form" action="<?=URL?>login/checkUser" method="post">
 					<span class="login100-form-title p-b-26">
 					خوش آمدید
 					</span>
+                <?php
+                if(isset($_GET['error'])){
+              ?>
+                <div  style="padding: .75rem .25rem;text-align: center" class="alert alert-danger">
+                    <?php
+                    echo $_GET['error']
+                    ?>
+                </div>
+        <?php } ?>
                 <span class="login100-form-title p-b-48">
 						<img src="<?=URL?>public/img/favicon.png">
 					</span>
 
                 <div class="wrap-input100 ">
-                    <input class="input100" type="text" name="email">
+                    <input class="input100" type="text" name="mobile" maxlength="11">
                     <span class="focus-input100 text-large" data-placeholder="شماره همراه"></span>
                 </div>
                 <div class="wrap-input100 ">
-                    <input class="input100" type="text" name="email">
+                    <input class="input100" type="text" name="password">
                     <span class="focus-input100 text-large" data-placeholder="رمز عبور"></span>
                 </div>
-
-
-
-
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
