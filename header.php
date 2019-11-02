@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base href="<?=URL?>"/>
     <title>باشگاه علیزاده</title>
-    <link rel="icon" href="public/img/favicon.png">
+    <link rel="icon" href="<?=URL?>/public/img/icon.png">
 
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <!-- animate css -->

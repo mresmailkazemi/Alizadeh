@@ -1,13 +1,15 @@
 <?php
-
-class panel extends controller{
+class panel extends controller
+{
 
 
     function __construct()
     {
+
     }
 
-    function index(){
+    function index()
+    {
 
         $this->view('panel/index');
     }

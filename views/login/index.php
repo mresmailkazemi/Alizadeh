@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base <?=URL?>>
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?=URL?>public/img//icon.png"/>
+    <link rel="icon" type="image/png" href="<?=URL?>public/img/icon.png"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=URL?>public/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->

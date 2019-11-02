@@ -2409,7 +2409,7 @@ var Popper = function () {
      * @private
      * @type {Object}
      * @deprecated since version 1.8
-     * @member Utils
+     * @panel Utils
      * @memberof Popper
      */
 
