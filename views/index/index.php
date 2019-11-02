@@ -1,6 +1,4 @@
 
-
-
 <!-- banner part start-->
 <section class="banner_part">
     <div class="container">
@@ -58,12 +56,7 @@
         </div>
     </div>
 </section>
-
-
 <!--::review_part end::-->
-
-
-
 
 <!--::exclusive_item_part start::-->
 <section class="team_member_section section_padding">

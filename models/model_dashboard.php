@@ -1,5 +1,5 @@
 <?php
-class model_panel extends model{
+class model_dashboard extends model{
 
 
     function __construct()
