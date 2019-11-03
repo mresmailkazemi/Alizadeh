@@ -11,7 +11,7 @@ class Model{
         $servername = 'localhost';
         $username = 'root';
         $password = '';
-        $dbname = 'test';
+        $dbname = 'alizadeh';
         self::$conn = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname, $username, $password);
         self::$conn->exec('set names utf8');
 

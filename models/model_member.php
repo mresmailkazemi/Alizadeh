@@ -7,10 +7,11 @@ class model_member extends model{
     }
 
     function getMember(){
+        $sql="SELECT * FROM tbl_user_info";
+        $stmt = self::$conn->prepare($sql);
 
-        $sql="SELECT * FROM tbl_user";
-        $result=$this->doselect($sql);
-        return $result;
-
+       $result = $stmt->fetchAll();
+        print_r($result);
+//        return $this->doselect($sql);
     }
 }

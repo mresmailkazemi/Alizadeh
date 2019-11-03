@@ -7,19 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base href="<?=URL?>"/>
     <title>باشگاه علیزاده</title>
+    <base href="<?=URL?>">
     <link rel="icon" href="<?=URL?>/public/img/icon.png">
 
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
     <!-- flaticon CSS -->
-    <link rel="stylesheet" href="public/css/flaticon.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/flaticon.css">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="public/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/magnific-popup.css">
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="public/css/all.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/all.css">
 
-    <link rel="stylesheet" href="public/css/iranyekan.css">
-    <link rel="stylesheet" href="public/css/costomstyle.css">
-    <link rel="stylesheet" href="public/css/stylePersian.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/costomstyle.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/stylePersian.css">
 </head>
 <body>
 <div style="background: url(public/img/sibscribe_bg.png)">
