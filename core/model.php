@@ -1,18 +1,12 @@
 <?php
 
 class Model{
-
-
     public static $conn = '';
 
     function __construct()
     {
-
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'test';
-        self::$conn = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname, $username, $password);
+        self::$conn = new PDO('mysql:host=localhost;dbname=shoe', 'root', '');
+        self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$conn->exec('set names utf8');
 
     }
