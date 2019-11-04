@@ -12,8 +12,7 @@ class Member extends controller{
     {
         $Member=$this->modelobject->getMember();
         $data=array($Member);
-//        print_r($data);
-//        $this->view('Member/index',$data,1,1);
+        $this->view('Member/index',$data,1,1);
     }
 
 

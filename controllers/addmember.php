@@ -5,4 +5,11 @@
      {
 
      }
+     function index()
+     {
+
+         $this->view('addMember/index',array(),1,1);
+     }
+
+
  }

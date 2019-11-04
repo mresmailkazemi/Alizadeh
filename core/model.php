@@ -1,22 +1,20 @@
 <?php
 
-class Model{
-
-
+class Model
+{
     public static $conn = '';
 
     function __construct()
     {
 
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'alizadeh';
-        self::$conn = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname, $username, $password);
+        self::$conn = new PDO('mysql:host=localhost;dbname=alizadeh', 'root', '');
+        self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         self::$conn->exec('set names utf8');
 
     }
-    function doselect($sql, $values=[],$fetch='',$fetchstyle=PDO::FETCH_ASSOC)
+
+    function doselect($sql, $values = [], $fetch = '', $fetchstyle = PDO::FETCH_ASSOC)
     {
 
         $stmt = self::$conn->prepare($sql);
@@ -34,6 +32,7 @@ class Model{
         }
         return $result;
     }
+
     public static function generateHash($password)
     {
         if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
@@ -45,6 +44,25 @@ class Model{
     public static function verify($password, $hashedPassword)
     {
         return crypt($password, $hashedPassword) == $hashedPassword;
+    }
+
+    public static function getStatus($id)
+    {
+        $sql = "SELECT * FROM status where id=?";
+        $stmt=self::$conn->prepare($sql);
+        $stmt->bindValue(1,$id);
+        $stmt->execute();
+       return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+    public static function getMobile($id)
+    {
+        $sql = "SELECT * FROM tbl_user where id=?";
+        $stmt=self::$conn->prepare($sql);
+        $stmt->bindValue(1,$id);
+        $stmt->execute();
+       return $stmt->fetch(PDO::FETCH_ASSOC);
+
     }
 
 }
