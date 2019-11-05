@@ -14,14 +14,11 @@ class Controller{
 
         }
 
-
         require ('views/'.$viewUrl.'.php');
 
         if($noIncloudfooter==''){
             require 'footer.php';
         }
-
-
 
     }
     function model($modelUrl){

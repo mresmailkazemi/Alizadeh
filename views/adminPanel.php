@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
     <link rel="stylesheet" href="<?=URL?>public/css/costomstyle.css">
     <link rel="stylesheet" href="<?=URL?>public/css/stylePersian.css">
+    <link rel="stylesheet" href="<?=URL?>css/jquery.md.bootstrap.datetimepicker.style.css">
+    <script src="<?=URL?>public/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="<?=URL?>public/js/popper.min.js"></script>
+    <script src="<?=URL?>public/js/bootstrap.min.js"></script>
+    <script src="<?=URL?>/public/js/jquery.md.bootstrap.datetimepicker.js"></script>
+
 </head>
 <body>
 <div style="background: url(public/img/sibscribe_bg.png)">

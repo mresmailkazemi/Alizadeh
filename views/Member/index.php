@@ -68,8 +68,7 @@ require 'views/adminPanel.php';
 <?php } ?>
     </table>
 
-
 </div>
-<script src="<?=URL?>public/js/main.js"></script>
-</body>
-</html>
+<?php
+require 'views/adminFooter.php';
+?>

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/iranyekan.css">
     <link rel="stylesheet" href="public/css/costomstyle.css">
+
 </head>
 
 <body>
@@ -47,15 +48,13 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="views/index/index.php">خانه</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">درباره ی ما</a>
-                            </li>
+
                             <li class="nav-item active">
-                                <a class="nav-link" href="cources.html">اعضا</a>
+                                <a class="nav-link" href="<?=URL?>login/index">ورود</a>
                             </li>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href="contact.html">ارتباط با ما</a>
+                                <a class="nav-link" href="#footer">ارتباط با ما</a>
                             </li>
                         </ul>
                     </div>
