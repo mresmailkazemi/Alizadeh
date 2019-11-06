@@ -52,7 +52,7 @@ require 'views/adminPanel.php';
         </div>
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">تاریخ تولد</label>
-        <    <input type="text" id="inputDate2" class="form-control date2"  aria-label="date2" aria-describedby="date2" autocomplete="off"  placeholder="تاریخ تولد " name="birthday" >>
+            <input type="text" class="form-control" id="birthday" placeholder="تاریخ تولد " name="birthday" required>
             <div class="valid-feedback"></div>
 
 
@@ -70,17 +70,10 @@ require 'views/adminPanel.php';
             <button class="btn btn-success float-sm-left w-100 mt-5">ادامه</button>
         </div>
     </form>
-    <script type="text/javascript">
-        $('.date2').MdPersianDateTimePicker({
 
-             targetTextSelector: '#inputDate2',
-             englishNumber: true
-        })
-    </script>
 
 
 
 </div>
-<?php
-require 'views/adminFooter.php';
-?>
+</body>
+</html>
