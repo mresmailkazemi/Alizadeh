@@ -1,13 +1,29 @@
 <?php
 require 'views/adminPanel.php';
 ?>
+<style>
+    @media (max-width: 768px) {
+        .sex{margin-top:11px}
+
+    }
+
+</style>
 <div class="container">
     <div class="mt-2 mb-3">
     <h2 class="text-xlarge alert alert-info">
         فرم مشخصات
     </h2>
 </div>
-    <form  class="form-inline was-validated" action="<?=URL?>addmember">
+    <?php
+    if(isset($_GET['error'])){
+        ?>
+        <div  style="padding: .75rem .25rem;text-align: center" class="alert alert-danger">
+            <?php
+            echo $_GET['error']
+            ?>
+        </div>
+    <?php } ?>
+    <form  class="form-inline was-validated mb-3" action="<?=URL?>addmember/insert" method="post">
 
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">نام</label>
@@ -23,46 +39,50 @@ require 'views/adminPanel.php';
         </div>
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">نام پدر</label>
-            <input type="text" class="form-control" id="family" placeholder="نام پدر" name="parentFamily" required>
+            <input type="text" class="form-control" id="family" placeholder="نام پدر" name="parentname" required>
             <div class="valid-feedback"></div>
 
         </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">جنسیت</label>
-            <input  type="radio" name="gender" value="male"> مرد
-            <input class="mr-3" type="radio" name="gender" value="female"> زن
-
-
-
+        <div class="form-group col-md-6 mb-3 sex">
+            <span for="name" class="w-25 text-center">جنسیت : </span>
+            <label class="ml-1">مرد</label>
+            <input  type="radio" name="sex" value="1" checked>
+            <label class="ml-1 mr-3">زن</label>
+            <input  type="radio" name="sex" value="2">
 
         </div>
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">ادرس</label>
-            <input type="text" class="form-control" id="address" placeholder="ادرس " name="address" required>
+            <textarea type="text" class="form-control" placeholder="ادرس " name="Address" required></textarea>
             <div class="valid-feedback"></div>
-
-
         </div>
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">شماره همراه</label>
-            <input type="text" class="form-control" id="mobile" placeholder="شماره همراه " name="mobile" required>
-            <div class="valid-feedback"></div>
-
+            <input type="text" class="form-control" id="mobile" placeholder="شماره همراه " name="mobile">
 
         </div>
+
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">تاریخ تولد</label>
-        <    <input type="text" id="inputDate2" class="form-control date2"  aria-label="date2" aria-describedby="date2" autocomplete="off"  placeholder="تاریخ تولد " name="birthday" >>
+            <input type="text" id="inputDate2" class="form-control date2"  aria-label="date2" aria-describedby="date2" autocomplete="off"  placeholder="تاریخ تولد " name="birthday" >
+            <div class="valid-feedback"></div>
+        </div>
+        <div class="form-group col-md-6 mb-2">
+            <label for="name" class="w-25">شروع اعتبار</label>
+            <input type="text" class="form-control" name="start_date" required>
             <div class="valid-feedback"></div>
 
-
         </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">پایان اعتبار</label>
+                <input type="text" class="form-control" name="end_date" required>
+                <div class="valid-feedback"></div>
+            </div>
+
         <div class="form-group col-md-6 mb-2">
             <label for="name" class="w-25">افزودن تصویر</label>
             <input type="file" class="form-control file p-r-6 text-center" name="File">
             <div class="valid-feedback"></div>
-
-
 
         </div>
         <div class="col-sm-12">

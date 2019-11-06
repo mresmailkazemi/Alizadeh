@@ -11,12 +11,8 @@ class model_login extends model
     {
         $bool = self::verify($_POST['password'], $result[0]['password']);
         if ($bool == 1) {
-       //     session_destroy();
-            if ($result[0]['permission'] == 0)
-                $_SESSION['operator'] = $result[0]['id'];
-            elseif ($result[0]['permission'] == 1)
+            if ($result[0]['permission'] == 1)
                 $_SESSION['admin'] = $result[0]['id'];
-
         }
         return $bool;
     }

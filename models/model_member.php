@@ -8,9 +8,6 @@ class model_member extends model
         parent::__construct();
     }
 
-    function getMember()
-    {
-        $sql = "SELECT * FROM tbl_user_info";
-        return $this->doselect($sql);
-    }
+
+
 }
