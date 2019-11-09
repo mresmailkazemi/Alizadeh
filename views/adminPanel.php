@@ -11,24 +11,21 @@
     <link rel="icon" href="<?=URL?>/public/img/icon.png">
 
     <link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="<?=URL?>public/css/flaticon.css">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="<?=URL?>public/css/magnific-popup.css">
+    <link rel="stylesheet" href="public/library/fontAwsome/css/all.css">
     <!-- swiper CSS -->
     <link rel="stylesheet" href="<?=URL?>public/css/all.css">
-
     <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
     <link rel="stylesheet" href="<?=URL?>public/css/costomstyle.css">
     <link rel="stylesheet" href="<?=URL?>public/css/stylePersian.css">
-    <link rel="stylesheet" href="<?=URL?>css/jquery.md.bootstrap.datetimepicker.style.css">
     <script src="<?=URL?>public/js/jquery-3.3.1.slim.min.js"></script>
     <script src="<?=URL?>public/js/popper.min.js"></script>
     <script src="<?=URL?>public/js/bootstrap.min.js"></script>
-    <script src="<?=URL?>/public/js/jquery.md.bootstrap.datetimepicker.js"></script>
-
+    <link href="public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
+    <script src="public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
 </head>
 <body>
+
 <div style="background: url(public/img/sibscribe_bg.png)">
     <div class="container-fluid mt-3 user_panel">
         <div class="row">

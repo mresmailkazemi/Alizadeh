@@ -1,5 +1,7 @@
-
 <!-- banner part start-->
+<?php
+echo Model::generateHash('mohammad');
+?>
 <section class="banner_part">
     <div class="container">
         <div class="row align-items-center">

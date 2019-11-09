@@ -1,6 +1,6 @@
 <?php
 
-class Addmember extends controller
+class addmember extends controller
 {
     /**
      * @var model_addMember
@@ -16,7 +16,6 @@ class Addmember extends controller
             header('location:' . URL . 'login/index');
     }
 
-
     function index()
     {
 
@@ -25,22 +24,26 @@ class Addmember extends controller
 
     function insert()
     {
-
-        $error=$this->modelobject->validation();
-        if($error !=""){
-           header( 'location:' . URL . 'addmember/index?error='.$error);
+        $error = $this->modelobject->validation();
+        if ($error != "") {
+            header('location:' . URL . 'addmember/index?error=' . $error);
             return;
         }
-        $userid = $this->modelobject->getUserId();
-        if(empty($userid)) {
+        //$userid = $this->modelobject->getUserId();
+        if (empty($userid)) {
             $this->modelobject->insertmobile();
             $userid = $this->modelobject->getUserId();
             $this->modelobject->forwardInfo($userid['id']);
             $this->modelobject->insertuition($userid['id']);
-            header( 'location:' . URL . 'Member/index?success=  با موفقیت ثبت شد');
-            return;
+            $countImg = count(array_filter(@$_FILES['pic']['name']));
+            if (count(@$_FILES['pic']['name']) > 0) {
+                echo $countImg;
+                       $this->modelobject->uploadImg($countImg, $userid['id']);
+            }
+       //     header('location:' . URL . 'Member/index?success=  با موفقیت ثبت شد');
+         //   return;
         }
-            header( 'location:' . URL . 'addmember/index?error=این فرد قبلا ثبت نام شده است');
-            return;
+        //header('location:' . URL . 'addmember/index?error=این فرد قبلا ثبت نام شده است');
+       // return;
     }
 }

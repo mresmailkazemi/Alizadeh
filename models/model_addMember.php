@@ -62,4 +62,78 @@ class model_addMember extends model
 
         $stmt->execute();
     }
+
+    function uploadImg($countImg,$id)
+    {
+        $pics = array();
+        $folder = $id;
+
+        if (!file_exists("public/img/member/$folder")) {
+            mkdir("public/img/member/$folder");
+        }
+        for ($i = 0; $i < $countImg; $i++) {
+            $tmpFilePath = $_FILES['pic']['tmp_name'][$i];
+            //Setup our new file path
+            $newFilePath = "public/img/member/$folder/";
+            $ext = strtolower(pathinfo($_FILES['pic']['name'][$i], PATHINFO_EXTENSION));
+            $newName = 'pic' . $i . '.';
+            $target = $newFilePath . basename($newName . '.' . $ext);  //with extension
+            $mainimage = $newFilePath . $newName . $ext;  //with out extension
+            //Upload the file into the temp dir
+
+            if (move_uploaded_file($tmpFilePath, $target)) {
+
+                $this->create_thumbnail($target, $mainimage, 1024, 1024);
+                if (file_exists($target)) {
+                    unlink($target);
+                }
+                array_push($pics, $newName  . $ext);
+            }
+        }
+        return $folder;
+    }
+
+    function create_thumbnail($file, $pathToSave = '', $w, $h = '', $crop = FALSE)
+    {
+        $new_height = $h;
+        list($width, $height) = getimagesize($file);
+        $r = $width / $height;
+        if ($crop) {
+            if ($width > $height) {
+                $width = ceil($width - ($width * abs($r - $w / $h)));
+            } else {
+                $height = ceil($height - ($height * abs($r - $w / $h)));
+            }
+            $newwidth = $w;
+            $newheight = $h;
+        } else {
+            if ($w / $h > $r) {
+                $newwidth = $h * $r;
+                $newheight = $h;
+            } else {
+                $newheight = $w / $r;
+                $newwidth = $w;
+            }
+        }
+        $what = getimagesize($file);
+        switch (strtolower($what['mime'])) {
+            case 'image/png';
+                $src = imagecreatefrompng($file);
+                break;
+            case 'image/jpeg';
+                $src = imagecreatefromjpeg($file);
+                break;
+            case 'image/gif';
+                $src = imagecreatefromgif($file);
+                break;
+            default;
+        }
+        if ($new_height != '') {
+            $newheight = $new_height;
+        }
+        $dst = imagecreatetruecolor($newwidth, $newheight);
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        imagejpeg($dst, $pathToSave, 95);
+        return $dst;
+    }
 }
