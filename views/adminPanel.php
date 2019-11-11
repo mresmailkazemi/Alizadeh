@@ -21,21 +21,60 @@
     <script src="<?=URL?>public/js/jquery-3.3.1.slim.min.js"></script>
     <script src="<?=URL?>public/js/popper.min.js"></script>
     <script src="<?=URL?>public/js/bootstrap.min.js"></script>
-    <link href="public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
-    <script src="public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
+    <script src="<?=URL?>public/js/k.js"></script>
+
+    <link href="<?=URL?>public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
+    <script src="<?=URL?>public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
 </head>
 <body>
 
 <div style="background: url(public/img/sibscribe_bg.png)">
     <div class="container-fluid mt-3 user_panel">
         <div class="row">
-            <div id="dashboard_content" class="col-md-8">
+            <div id="dashboard_content" class="col-12">
                 <div id="circles">
-                    <ul class="text-right overhidden">
+                    <ul class="text-center">
                         <li id="request">
-                            <a href="<?= URL ?>adminrequest/index" class="text-center position-relative">
-                                <i class="fas fa-headset fa-2x text-danger"></i>
-                                <span class="font12 d-block">درخواست54541 ها</span>
+                            <a href="<?= URL ?>dashboard/index" class="text-center position-relative">
+                                <i class="fas fa-desktop fa-2x text-danger"></i>
+                                <span class="font12 d-block">داشبورد</span>
+                                <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+
+                        <li id="request">
+                            <a href="<?= URL ?>addMember/index" class="text-center position-relative">
+                                <i class="fas fa-user-plus fa-2x text-danger"></i>
+                                <span class="font12 d-block">افزودن اعضا</span>
+                                <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+                        <li id="request">
+                            <a href="<?= URL ?>Member/index" class="text-center position-relative">
+                                <i class="fas fa-users fa-2x text-danger"></i>
+                                <span class="font12 d-block">اعضای باشگاه</span>
+                                <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+                        <li id="request">
+                            <a href="<?= URL ?>Debtors/index" class="text-center position-relative">
+                                <i class="fas fa-dollar-sign fa-2x text-danger"></i>
+                                <span class="font12 d-block">شهریه</span>
+                                <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+
+                        <li id="request">
+                            <a href="<?= URL ?>message/index" class="text-center position-relative">
+                                <i class="fas fa-paper-plane fa-2x text-danger"></i>
+                                <span class="font12 d-block">ارسال پیام</span>
+                                <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+                        <li id="request">
+                            <a href="<?= URL ?>option/index" class="text-center position-relative">
+                                <i class="fas fa-cog fa-2x text-danger"></i>
+                                <span class="font12 d-block">تنظیمات</span>
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>

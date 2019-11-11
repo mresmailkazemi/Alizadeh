@@ -26,3 +26,8 @@ require 'views/adminPanel.php';
         <button type="submit" class="btn btn-success w-100 ">ارسال</button>
     </form>
 </div>
+
+
+<?php
+require 'views/adminFooter.php';
+?>

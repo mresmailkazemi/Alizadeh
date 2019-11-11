@@ -22,6 +22,24 @@ class Member extends controller
         $data = array($Member);
         $this->view('Member/index', $data, 1, 1);
     }
-
-
+    function Delete()
+    {
+        $this->modelobject->goDelete();
+        header('location:' . URL . 'Member/index');
+    }
+    function Archive()
+{
+    $this->modelobject->goArchive();
+    header('location:' . URL . 'Member/index');
+}
+    function Inactive()
+    {
+        $this->modelobject->goInactive();
+        header('location:' . URL . 'Member/index');
+    }
+    function Active()
+    {
+        $this->modelobject->goActive();
+        header('location:' . URL . 'Member/index');
+    }
 }
