@@ -27,8 +27,8 @@ class message extends controller
             $mobile = $this->getMemberMobile();
         else
             $mobile = $this->getDebtorsMobile();
-
         $this->modelobject->sendSms($mobile, $_POST['text']);
+
     }
 
     function getMemberMobile()
