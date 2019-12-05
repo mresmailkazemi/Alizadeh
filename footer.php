@@ -5,9 +5,8 @@
             <div class="col-xl-3 col-sm-6 col-md-4">
                 <div class="single-footer-widget footer_1">
                     <h4>درباره ی ما</h4>
-                    <p>Heaven fruitful doesn't over for these theheaven fruitful doe over days
-                        appear creeping seasons sad behold beari ath of it fly signs bearing
-                        be one blessed.</p>
+                    <p>
+                       آکادامی علیزاده با تکیه بر تجربه ی مربیان دلسوز و باتجربه اماده ارائه خدمات ورزشی در حوزه ی بدنسازی  به ورزشکاران عزیز استان قم می باشد.</p>
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-md-4">
@@ -26,9 +25,9 @@
                 <div class="single-footer-widget footer_2">
                     <h4>ارتباط با ما</h4>
                     <div class="contact_info">
-                        <p><span> Address :</span> نیر.گاه خیابان توحید بین  کوچه ی 32 و 34 جنب مسجد امام خمینی باشگاه علیزاده پورنیا</p>
-                        <p><span> Phone :</span> +2 36 265 (8060)</p>
-                        <p><span> Email : </span>info@colorlib.com </p>
+                        <p><span>آدرس :</span> نیروگاه خیابان توحید بین  کوچه ی 32 و 34 جنب مسجد امام خمینی باشگاه علیزاده پورنیا</p>
+                        <p><span> تلفن :</span> +2 36 265 (8060)</p>
+                        <p><span> ایمیل : </span>info@colorlib.com </p>
                     </div>
                 </div>
             </div>
