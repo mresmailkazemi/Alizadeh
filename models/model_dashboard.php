@@ -7,4 +7,10 @@ class model_dashboard extends model
     {
         parent::__construct();
     }
+
+ function count(){
+
+        $sql='SELECT (CONT) '
+ }
+
 }

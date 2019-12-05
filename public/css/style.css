@@ -62,7 +62,7 @@ input:hover, input:focus {
 
 /* line 26, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_common.scss */
 .section_padding {
-  padding: 130px 0px;
+  padding: 80px 0px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -379,6 +379,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: right;
 }
 
 /* line 229, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_common.scss */
@@ -884,7 +885,7 @@ ul {
 /* line 66, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
 .single-blog .date {
   color: #666666;
-  text-align: left;
+  text-align: right;
   display: inline-block;
   font-size: 13px;
   font-weight: 300;
@@ -892,7 +893,7 @@ ul {
 
 /* line 74, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
 .single-blog .tag {
-  text-align: left;
+  text-align: right;
   display: inline-block;
   float: left;
   font-size: 13px;
@@ -1917,7 +1918,7 @@ ul {
 
 /* line 1234, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
 .single-post-area .navigation-area .nav-left {
-  text-align: left;
+  text-align: right;
 }
 
 /* line 1237, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
@@ -1959,7 +1960,7 @@ ul {
 
 /* line 1269, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
 .single-post-area .navigation-area .nav-right {
-  text-align: right;
+  text-align: center;
 }
 
 /* line 1272, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_blog.scss */
@@ -2293,7 +2294,7 @@ ul {
 /* line 29, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
 .main_menu .main-menu-item ul li a {
   color: #ffffff !important;
-  font-size: 14px;
+  font-size: 15px;
   padding: 0px 22px !important;
   font-family: "iranyekan";
   text-transform: uppercase;
@@ -2413,7 +2414,7 @@ ul {
   }
   /* line 130, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item {
-    text-align: left !important;
+    text-align: right !important;
   }
   /* line 132, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item .nav-item {
@@ -2471,7 +2472,7 @@ ul {
   }
   /* line 185, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item {
-    text-align: left !important;
+    text-align: right !important;
   }
   /* line 187, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item .nav-item {
@@ -2521,7 +2522,7 @@ ul {
   }
   /* line 234, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item {
-    text-align: left !important;
+    text-align: right !important;
   }
   /* line 236, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_menu.scss */
   .main_menu .main-menu-item .nav-item {
@@ -3364,7 +3365,7 @@ ul {
 
 /* line 1, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_our_offer.scss */
 .our_offer {
-  padding: 260px 0px 130px;
+  padding: 150px 0px 130px;
 }
 
 @media (max-width: 575px) {
@@ -3606,7 +3607,7 @@ ul {
 
 /* line 4, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_calculate_part.scss */
 .calculate_part .section_tittle {
-  text-align: left;
+  text-align: center;
   margin-bottom: 68px;
 }
 
@@ -4739,6 +4740,8 @@ ul {
   color: #888888;
   font-size: 14px;
   line-height: 1.9;
+  text-align: right;
+  direction: rtl;
 }
 
 /* line 19, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_footer.scss */
@@ -4747,6 +4750,7 @@ ul {
   font-weight: 700;
   font-size: 27px;
   color: #fff;
+  text-align: right;
 }
 
 @media (max-width: 1024px) {
@@ -4869,12 +4873,15 @@ ul {
 /* line 106, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_footer.scss */
 .footer-area .contact_info p {
   margin-bottom: 10px;
+  text-align: right;
 }
 
 /* line 108, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_footer.scss */
 .footer-area .contact_info p span {
   color: #fff;
   font-size: 16px;
+  text-align: right;
+  direction: rtl;
 }
 
 /* line 114, E:/171 Fitzone Fitness/171_ Fitzone_Fitness_html/sass/_footer.scss */

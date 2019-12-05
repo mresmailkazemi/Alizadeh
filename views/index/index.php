@@ -1,16 +1,9 @@
 <!-- banner part start-->
-<?php
-echo Model::generateHash('mohammad');
-?>
 <section class="banner_part">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-9">
                 <div class="banner_text text-center">
-                    <div class="banner_text_iner">
-                        <h2>Join <span>now</span> </h2>
-                        <p>get in shape today</p>
-                    </div>
                 </div>
             </div>
         </div>
