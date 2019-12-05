@@ -15,13 +15,28 @@ class model_message extends model{
     }
     function sendSms($mobile,$text)
     {
+        $url = "https://ippanel.com/services.jspd";
 
+        $rcpt_nm = array($mobile);
+        $param = array
+        (
+            'uname'=>'faraz09196145343',
+            'pass'=>'0371477905',
+            'from'=>'+983000505',
+            'message'=>$text,
+            'to'=>json_encode($rcpt_nm),
+            'op'=>'send'
+        );
 
+        $handler = curl_init($url);
+        curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($handler, CURLOPT_POSTFIELDS, $param);
+        curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
+        $response2 = curl_exec($handler);
 
-
-
-
-
+        $response2 = json_decode($response2);
+        $res_code = $response2[0];
+        $res_data = $response2[1];
 
     }
     function updateCount($ids)
