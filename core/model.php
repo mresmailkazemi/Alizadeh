@@ -6,12 +6,9 @@ class Model
 
     function __construct()
     {
-
         self::$conn = new PDO('mysql:host=localhost;dbname=alizadeh', 'root', '');
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         self::$conn->exec('set names utf8');
-
     }
 
     function doselect($sql, $values = [], $fetch = '', $fetchstyle = PDO::FETCH_ASSOC)
@@ -56,6 +53,10 @@ class Model
     public static function verify($password, $hashedPassword)
     {
         return crypt($password, $hashedPassword) == $hashedPassword;
+    }
+    function updateCounterSms($num)
+    {
+        $this->doQuery("UPDATE tbl_option SET val=val+?",array($num));
     }
 
     function getMember()

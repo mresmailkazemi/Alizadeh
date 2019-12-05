@@ -15,7 +15,18 @@ class message extends controller{
     function index(){
         $this->view('message/index',array(),1,1);
     }
-    function getMember(){
+    function sendAll()
+    {
+        $this->modelobject->sendSms($this->getMemberMobile());
+    }
+    function sendDebtors()
+    {
+        $this->modelobject->sendSms($this->getMemberMobile());
+    }
+    function getMemberMobile(){
         return $this->modelobject->getMobileAllMember();
+    }
+    function getDebtorsMobile(){
+        return $this->modelobject->getMobileDebtorMember();
     }
 }

@@ -43,8 +43,17 @@ class addmember extends controller
                 echo "asd";
                 $this->modelobject->uploadPersonalPic($userid['id']);
             }
-          //  header('location:' . URL . 'addmember/index?success=باموفقیت ثبت شد');
+            if($_POST['send_sms']==1)
+                $this->sendSms($_POST['mobile']);
+            header('location:' . URL . 'addmember/index?success=باموفقیت ثبت شد');
+            return;
         }else
             header('location:' . URL . 'addmember/index?error=این شماره قبلا ثبت شده است');
+        return;
+    }
+
+    function sendSms($mobile)
+    {
+        $this->modelobject->goSend();
     }
 }
