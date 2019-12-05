@@ -17,12 +17,18 @@ class message extends controller
 
     function index()
     {
+        print_r($this->getDebtorsMobile());
         $this->view('message/index', array(), 1, 1);
     }
 
     function send()
     {
-        $this->modelobject->sendSms($this->getMemberMobile(),$_POST['text']);
+        if ($_POST['how_to'] == 2)
+            $mobile = $this->getMemberMobile();
+        else
+            $mobile = $this->getDebtorsMobile();
+
+        $this->modelobject->sendSms($mobile, $_POST['text']);
     }
 
     function getMemberMobile()
