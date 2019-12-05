@@ -46,13 +46,18 @@ class Model
         return crypt($password, $hashedPassword) == $hashedPassword;
     }
 
+    function getMember()
+    {
+        $sql = "SELECT * FROM tbl_user_info";
+        return $this->doselect($sql);
+    }
     public static function getStatus($id)
     {
         $sql = "SELECT * FROM status where id=?";
         $stmt=self::$conn->prepare($sql);
         $stmt->bindValue(1,$id);
         $stmt->execute();
-       return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
     public static function getMobile($id)
@@ -61,8 +66,7 @@ class Model
         $stmt=self::$conn->prepare($sql);
         $stmt->bindValue(1,$id);
         $stmt->execute();
-       return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
-
 }

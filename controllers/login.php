@@ -11,14 +11,11 @@ class login extends Controller
         parent::__construct();
         session_start();
         if (isset($_SESSION['admin']))
-            header('location:' . URL . 'admincreate/index');
-        elseif (isset($_SESSION['operator']))
-            header('location:' . URL . 'operatorsalt/index');
+            header('location:' . URL . 'Member/index');
     }
 
     function index()
     {
-
         $data = array('');
         $this->view('login/index', $data, 1, 1);
     }
@@ -39,7 +36,7 @@ class login extends Controller
         if(sizeof($result)>0){
             $login= $this->modelobject->goCheckPass($result);
             if($login==1){
-                header('location:' . URL . 'index/index');
+                header('location:' . URL . 'Member/index');
             }else
                 header('location:' . URL . 'index/index?error=نام کاربری یا کلمه عبور اشتباه است');
         } else
