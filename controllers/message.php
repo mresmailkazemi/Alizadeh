@@ -23,12 +23,12 @@ class message extends controller
 
     function sendAll()
     {
-        $this->modelobject->sendSms($this->getMemberMobile());
+        $this->modelobject->sendSms($this->getMemberMobile(),$_POST['text']);
     }
 
     function sendDebtors()
     {
-        $this->modelobject->sendSms($this->getMemberMobile());
+        $this->modelobject->sendSms($this->getMemberMobile(),$_POST['text']);
     }
 
     function getMemberMobile()

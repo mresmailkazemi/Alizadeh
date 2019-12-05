@@ -13,10 +13,8 @@ class model_message extends model{
     {
         return $this->doselect("SELECT id FROM tbl_tuition WHERE end_date<CURDATE() AND sms_count<3",array(),'',PDO::FETCH_COLUMN);
     }
-    function sendSms($mobile)
+    function sendSms($mobile,$text)
     {
-
-
 
 
 
@@ -30,5 +28,9 @@ class model_message extends model{
     {
         $id=join(',',$ids);
         return $this->doselect("UPDATE tbl_tuition SET sms_count=sms_count+1 WHERE id IN (' . $id . ') ",array(),'',PDO::FETCH_COLUMN);
+    }
+    function giveMobileGetId()
+    {
+
     }
 }
