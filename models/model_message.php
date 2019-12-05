@@ -7,7 +7,7 @@ class model_message extends model{
     }
     function getMobileAllMember()
     {
-        $this->doselect("SELECT mobile FROM tbl_user",array(),'',PDO::FETCH_COLUMN);
+       return $this->doselect("SELECT mobile FROM tbl_user",array(),'',PDO::FETCH_COLUMN);
     }
     function getMobileDebtorMember()
     {

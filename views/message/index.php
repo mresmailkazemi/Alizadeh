@@ -4,7 +4,7 @@ require 'views/adminPanel.php';
 ?>
 
 <div class="container">
-    <form action="<?=URL?>sendSms" method="post">
+    <form action="<?=URL?>message/send" method="post">
    <div class="row">
        <div class="col-md-2 mt-4 p-0">
 <b class="m-2 text-xlarge">نوع گیرنده</b>

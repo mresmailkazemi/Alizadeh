@@ -17,16 +17,10 @@ class message extends controller
 
     function index()
     {
-        print_r($this->getDebtorsMobile());
         $this->view('message/index', array(), 1, 1);
     }
 
-    function sendAll()
-    {
-        $this->modelobject->sendSms($this->getMemberMobile(),$_POST['text']);
-    }
-
-    function sendDebtors()
+    function send()
     {
         $this->modelobject->sendSms($this->getMemberMobile(),$_POST['text']);
     }
