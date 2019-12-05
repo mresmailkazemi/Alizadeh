@@ -16,10 +16,7 @@
     <link rel="stylesheet" href="public/css/themify-icons.css">
     <!-- flaticon CSS -->
     <link rel="stylesheet" href="public/css/flaticon.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="public/library/fontAwsome/css/all.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="public/css/all.css">
+    <link rel="stylesheet" href="public/css/fontAwesome/css/all.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/iranyekan.css">
