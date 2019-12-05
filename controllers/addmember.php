@@ -44,7 +44,7 @@ class addmember extends controller
                 $this->modelobject->uploadPersonalPic($userid['id']);
             }
             if($_POST['send_sms']==1)
-                $this->sendSms($_POST['mobile']);
+                $this->modelobject->sendSms($_POST['mobile']);
             header('location:' . URL . 'addmember/index?success=باموفقیت ثبت شد');
             return;
         }else
@@ -52,8 +52,4 @@ class addmember extends controller
         return;
     }
 
-    function sendSms($mobile)
-    {
-        $this->modelobject->goSend();
-    }
 }
