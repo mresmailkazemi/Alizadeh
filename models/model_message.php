@@ -11,7 +11,7 @@ class model_message extends model{
     }
     function getMobileDebtorMember()
     {
-        return $this->doselect("SELECT mobile FROM tbl_tuition WHERE end_date<CURDATE() AND sms_count<3",array(),'',PDO::FETCH_COLUMN);
+        return $this->doselect("SELECT id FROM tbl_tuition WHERE end_date<CURDATE() AND sms_count<3",array(),'',PDO::FETCH_COLUMN);
     }
     function sendSms($mobile)
     {
