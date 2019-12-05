@@ -2,18 +2,15 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base href="<?=URL?>"/>
     <title>باشگاه علیزاده</title>
     <base href="<?=URL?>">
     <link rel="icon" href="<?=URL?>/public/img/icon.png">
-
     <link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="public/library/fontAwsome/css/all.css">
-    <!-- swiper CSS -->
     <link rel="stylesheet" href="<?=URL?>public/css/all.css">
     <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
     <link rel="stylesheet" href="<?=URL?>public/css/costomstyle.css">
@@ -22,7 +19,6 @@
     <script src="<?=URL?>public/js/popper.min.js"></script>
     <script src="<?=URL?>public/js/bootstrap.min.js"></script>
     <script src="<?=URL?>public/js/k.js"></script>
-
     <link href="<?=URL?>public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
     <script src="<?=URL?>public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
 </head>
@@ -41,7 +37,6 @@
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
-
                         <li id="request">
                             <a href="<?= URL ?>addMember/index" class="text-center position-relative">
                                 <i class="fas fa-user-plus fa-2x text-danger"></i>
@@ -63,7 +58,6 @@
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
-
                         <li id="request">
                             <a href="<?= URL ?>message/index" class="text-center position-relative">
                                 <i class="fas fa-paper-plane fa-2x text-danger"></i>
