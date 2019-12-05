@@ -17,7 +17,6 @@ class message extends controller
 
     function index()
     {
-        print_r($this->getDebtorsMobile());
         $this->view('message/index', array(), 1, 1);
     }
 
