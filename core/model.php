@@ -32,6 +32,18 @@ class Model
         }
         return $result;
     }
+    function doQuery($sql, $values = [])
+    {
+
+        $stmt = self::$conn->prepare($sql);
+
+        foreach ($values as $key => $value) {
+
+            $stmt->bindValue($key + 1, $value);
+
+        }
+        $stmt->execute();
+    }
 
     public static function generateHash($password)
     {
