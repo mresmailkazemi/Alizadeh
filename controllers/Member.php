@@ -22,6 +22,7 @@ class Member extends controller
         $data = array($Member);
         $this->view('Member/index', $data, 1, 1);
     }
+
     function Delete()
     {
         $this->modelobject->goDelete();

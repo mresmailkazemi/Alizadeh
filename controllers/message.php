@@ -1,6 +1,9 @@
 <?php
 class message extends controller{
-
+    /**
+     * @var model_message
+     */
+    protected $modelobject;
     function __construct()
     {
         parent::__construct();
@@ -10,8 +13,9 @@ class message extends controller{
     }
 
     function index(){
-
-
         $this->view('message/index',array(),1,1);
+    }
+    function getMember(){
+        return $this->modelobject->getMobileAllMember();
     }
 }

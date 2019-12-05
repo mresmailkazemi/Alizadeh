@@ -5,4 +5,8 @@ class model_message extends model{
     {
         parent::__construct();
     }
+    function getMobileAllMember()
+    {
+        $this->doselect("SELECT mobile FROM tbl_user",array(),'',PDO::FETCH_COLUMN);
+    }
 }
