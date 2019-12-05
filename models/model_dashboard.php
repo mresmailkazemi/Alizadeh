@@ -10,7 +10,6 @@ class model_dashboard extends model
 
  function count(){
 
-        $sql='SELECT (CONT) '
  }
 
 }
