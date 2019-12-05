@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,7 +7,6 @@
     <base href="<?=URL?>"/>
     <title>باشگاه علیزاده</title>
     <link rel="icon" href="<?=URL?>/public/img/icon.png">
-
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <!-- animate css -->
     <link rel="stylesheet" href="public/css/animate.css">
@@ -19,16 +17,14 @@
     <!-- flaticon CSS -->
     <link rel="stylesheet" href="public/css/flaticon.css">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="public/css/magnific-popup.css">
+    <link rel="stylesheet" href="public/library/fontAwsome/css/all.css">
     <!-- swiper CSS -->
     <link rel="stylesheet" href="public/css/all.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/iranyekan.css">
     <link rel="stylesheet" href="public/css/costomstyle.css">
-
 </head>
-
 <body>
 <header class="main_menu home_menu">
     <div class="container">
@@ -41,24 +37,20 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse main-menu-item justify-content-end"
                          id="navbarSupportedContent">
                         <ul class="navbar-nav flex-row-reverse">
                             <li class="nav-item active">
                                 <a class="nav-link" href="views/index/index.php">خانه</a>
                             </li>
-
                             <li class="nav-item active">
                                 <a class="nav-link" href="<?=URL?>login/index">ورود</a>
                             </li>
-
                             <li class="nav-item active">
                                 <a class="nav-link" href="#footer">ارتباط با ما</a>
                             </li>
                         </ul>
                     </div>
-
                 </nav>
             </div>
         </div>

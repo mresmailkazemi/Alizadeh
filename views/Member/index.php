@@ -4,14 +4,15 @@ require 'views/adminPanel.php';
 
 <div class="container text-right" id="panel">
     <div class="mb-3 mt-3 na  text-center alert alert-info py-1 "> <h1 class="text-xlarge">اعضای باشگاه</h1> </div>
+    <form method="post">
     <div class="mb-3">
-    <button class="btn btn-danger">حذف کاربر</button>
+    <button class="btn btn-danger"  data-href="<?=URL?>Member/Delete" onclick="submitHrefandFrom(this)">حذف کاربر</button>
     <a  href="<?=URL?>addMember/index" class="btn btn-success float-left text-white"> اعضا
         <i class="fa fa-plus"></i>
     </a>
-    <button class="btn btn-warning">ارشیو</button>
-    <button class="btn btn-info">فعال</button>
-    <button class="btn btn-dark">غیر فعال</button>
+    <button class="btn btn-warning" data-href="<?=URL?>Member/Archive" onclick="submitHrefandFrom(this)">ارشیو</button>
+    <button class="btn btn-info"  data-href="<?=URL?>Member/Active" onclick="submitHrefandFrom(this)">فعال</button>
+    <button class="btn btn-dark"  data-href="<?=URL?>Member/inactive" onclick="submitHrefandFrom(this)">غیر فعال</button>
     </div>
     <?php
     if(isset($_GET['success'])){
@@ -52,7 +53,7 @@ require 'views/adminPanel.php';
                 <tr>
 
                     <td><?=$i?></td>
-                    <td><input type="checkbox"></td>
+                    <td><input name="delitem[]" value="<?=$row['userid']?>" type="checkbox"></td>
                     <td><?=$row['sex']?></td>
                     <td><?=$row['name']?></td>
                     <td><?=$row['family']?></td>
@@ -79,6 +80,7 @@ require 'views/adminPanel.php';
         </table>
 
     </div>
+</form>
 
 </div>
 <?php

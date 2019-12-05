@@ -1,79 +1,120 @@
 <?php
 require 'views/adminPanel.php';
 ?>
-<div class="container">
-    <div class="mt-2 mb-3">
-    <h2 class="text-xlarge alert alert-info">
-        فرم مشخصات
-    </h2>
-</div>
-    <form  class="form-inline was-validated" action="<?=URL?>addmember">
+    <style>
+        @media (max-width: 768px) {
+            .sex {
+                margin-top: 11px
+            }
 
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">نام</label>
-            <input type="text" class="form-control" id="name" placeholder="نام" name="name" required>
-            <div class="valid-feedback"></div>
+        }
+        .custom_input {
+            border-color:#28a745!important;
+            padding-right: calc( .75rem)!important;
+            background-image: none!important;
 
+        }
+        .must_input {
+            border-color:#ff3f3f!important;
+            padding-right: calc( .75rem)!important;
+            background-image: none!important;
+
+        }
+    </style>
+    <div class="container">
+        <div class="mt-2 mb-3">
+            <h2 class="text-xlarge alert alert-info">
+                فرم مشخصات
+            </h2>
         </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">نام خانوادگی</label>
-            <input type="text" class="form-control" id="family" placeholder="نام خانوادگی " name="family" required>
-            <div class="valid-feedback"></div>
+        <?php
+        if (isset($_GET['error'])) {
+            ?>
+            <div style="padding: .75rem .25rem;text-align: center" class="alert alert-danger">
+                <?php
+                echo $_GET['error']
+                ?>
+            </div>
+        <?php } ?>
+        <form class="form-inline was-validated mb-3" action="<?= URL ?>addmember/insert" method="post" enctype="multipart/form-data">
 
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">نام پدر</label>
-            <input type="text" class="form-control" id="family" placeholder="نام پدر" name="parentFamily" required>
-            <div class="valid-feedback"></div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">نام</label>
+                <input type="text" class="form-control must_input" id="name" placeholder="اجباری" name="name">
 
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">جنسیت</label>
-            <input  type="radio" name="gender" value="male"> مرد
-            <input class="mr-3" type="radio" name="gender" value="female"> زن
-
-
-
-
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">ادرس</label>
-            <input type="text" class="form-control" id="address" placeholder="ادرس " name="address" required>
-            <div class="valid-feedback"></div>
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">نام خانوادگی</label>
+                <input type="text" class="form-control must_input" id="family" placeholder="اجباری " name="family">
 
 
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">شماره همراه</label>
-            <input type="text" class="form-control" id="mobile" placeholder="شماره همراه " name="mobile" required>
-            <div class="valid-feedback"></div>
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">نام پدر</label>
+                <input type="text" class="form-control custom_input" id="family" name="parentname">
+
+            </div>
+            <div class="form-group col-md-6 mb-2 sex">
+                <span for="name" class="w-25 text-center">جنسیت : </span>
+                <label class="ml-1">مرد</label>
+                <input type="radio" name="sex" value="1" checked>
+                <label class="ml-1 mr-3">زن</label>
+                <input type="radio" name="sex" value="2">
+
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">ادرس</label>
+                <textarea type="text" class="form-control custom_input" placeholder="ادرس " name="Address" required></textarea>
+                <div class="valid-feedback"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name" class="w-25">شماره همراه</label>
+                <input type="text" class="form-control must_input " id="mobile" placeholder="اجباری" name="mobile" maxlength="11">
+
+            </div>
+
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">تاریخ تولد</label>
+                <input type="text" id="inputDate3" class="form-control custom_input date4" name="birthday">
+            </div>
+
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">شروع اعتبار</label>
+                <input type="text" class="form-control must_input"  placeholder="اجباری" name="start_date">
+
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">پایان اعتبار</label>
+                <input type="text" class="form-control must_input"   placeholder="اجباری" name="end_date">
+
+            </div>
+
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">افزودن تصویر</label>
+                <input type="file" class="form-control custom_input file text-center" name="pic[]">
+
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">افزودن مدارک</label>
+                <input type="file" class="form-control custom_input file  text-center" name="pic[]">
+
+            </div>
+            <div class="col-sm-12">
+
+                <button class="btn btn-success float-sm-left w-100 mt-5">ادامه</button>
+            </div>
+        </form>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".date4").MdPersianDateTimePicker({
+                    targetDateSelector: "#inputDate3",
+                    isGregorian: false
+                })
+            });
+        </script>
 
 
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">تاریخ تولد</label>
-            <input type="text" class="form-control" id="birthday" placeholder="تاریخ تولد " name="birthday" required>
-            <div class="valid-feedback"></div>
-
-
-        </div>
-        <div class="form-group col-md-6 mb-2">
-            <label for="name" class="w-25">افزودن تصویر</label>
-            <input type="file" class="form-control file p-r-6 text-center" name="File">
-            <div class="valid-feedback"></div>
-
-
-
-        </div>
-        <div class="col-sm-12">
-
-            <button class="btn btn-success float-sm-left w-100 mt-5">ادامه</button>
-        </div>
-    </form>
-
-
-
-
-</div>
-</body>
-</html>
+    </div>
+<?php
+require 'views/adminFooter.php';
+?>

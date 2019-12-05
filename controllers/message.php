@@ -5,7 +5,7 @@ class message extends controller{
     {
         parent::__construct();
         session_start();
-        if (isset($_SESSION['admin']))
+        if (!isset($_SESSION['admin']))
             header('location:' . URL . 'login/index');
     }
 
