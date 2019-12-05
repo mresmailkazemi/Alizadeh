@@ -27,7 +27,7 @@
 <body>
 
 <div style="background: url(public/img/sibscribe_bg.png)">
-    <div class="container-fluid mt-3 user_panel">
+    <div class="container-fluid user_panel">
         <div class="row">
             <div id="dashboard_content" class="col-12">
                 <div id="circles">

@@ -29,7 +29,7 @@ class addmember extends controller
             header('location:' . URL . 'addmember/index?error=' . $error);
             return;
         }
-        //$userid = $this->modelobject->getUserId();
+        $userid = $this->modelobject->getUserId();
         if (empty($userid)) {
             $this->modelobject->insertmobile();
             $userid = $this->modelobject->getUserId();
@@ -37,13 +37,14 @@ class addmember extends controller
             $this->modelobject->insertuition($userid['id']);
             $countImg = count(array_filter(@$_FILES['pic']['name']));
             if (count(@$_FILES['pic']['name']) > 0) {
-                echo $countImg;
                        $this->modelobject->uploadImg($countImg, $userid['id']);
             }
-       //     header('location:' . URL . 'Member/index?success=  با موفقیت ثبت شد');
-         //   return;
-        }
-        //header('location:' . URL . 'addmember/index?error=این فرد قبلا ثبت نام شده است');
-       // return;
+            if (!empty($_FILES['personal_pic'])) {
+                echo "asd";
+                $this->modelobject->uploadPersonalPic($userid['id']);
+            }
+          //  header('location:' . URL . 'addmember/index?success=باموفقیت ثبت شد');
+        }else
+            header('location:' . URL . 'addmember/index?error=این شماره قبلا ثبت شده است');
     }
 }

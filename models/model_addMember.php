@@ -1,10 +1,6 @@
 <?php
-
-
 class model_addMember extends model
 {
-
-
     function __construct()
     {
         parent::__construct();
@@ -20,8 +16,6 @@ class model_addMember extends model
         return $flag;
 
     }
-
-
     function insertmobile(){
 
         $pass=Model::generateHash('alizadeh');
@@ -62,7 +56,26 @@ class model_addMember extends model
 
         $stmt->execute();
     }
+function uploadPersonalPic($id)
+{
+    if (!file_exists("public/img/member/$id")) {
+        mkdir("public/img/member/$id");
+    }
+    $tmpFilePath = $_FILES['personal_pic']['tmp_name'];
+    $newFilePath = "public/img/member/$id/";
+    $ext = strtolower(pathinfo($_FILES['personal_pic']['name'], PATHINFO_EXTENSION));
+    $newName = 'pic.';
+    $target = $newFilePath . basename($newName . '.' . $ext);  //with extension
+    $mainimage = $newFilePath . $newName . $ext;  //with out extension
+    if (move_uploaded_file($tmpFilePath, $target)) {
 
+        $this->create_thumbnail($target, $mainimage, 1024, 1024);
+        if (file_exists($target)) {
+            unlink($target);
+        }
+    }
+
+}
     function uploadImg($countImg,$id)
     {
         $pics = array();

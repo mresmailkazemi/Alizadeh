@@ -36,6 +36,15 @@ require 'views/adminPanel.php';
                 ?>
             </div>
         <?php } ?>
+        <?php
+        if (isset($_GET['success'])) {
+            ?>
+            <div style="padding: .75rem .25rem;text-align: center" class="alert alert-success">
+                <?php
+                echo $_GET['success']
+                ?>
+            </div>
+        <?php } ?>
         <form class="form-inline was-validated mb-3" action="<?= URL ?>addmember/insert" method="post" enctype="multipart/form-data">
 
             <div class="form-group col-md-6 mb-2">
@@ -75,29 +84,42 @@ require 'views/adminPanel.php';
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">تاریخ تولد</label>
-                <input type="text" id="inputDate3" class="form-control custom_input date4" name="birthday">
+                <input type="text" id="inputDate3" class="form-control custom_input date3" name="birthday">
             </div>
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">شروع اعتبار</label>
-                <input type="text" class="form-control must_input"  placeholder="اجباری" name="start_date">
+                <input type="text" id="inputDate4" class="form-control must_input date4"  placeholder="اجباری" name="start_date">
 
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">پایان اعتبار</label>
-                <input type="text" class="form-control must_input"   placeholder="اجباری" name="end_date">
+                <input type="text" id="inputDate5" class="form-control must_input date5"   placeholder="اجباری" name="end_date">
 
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">ارسال پیامک خوش آمدگویی</label>
+                <select class="form-control" name="send_sms">
+                    <option value="0">خیر</option>
+                    <option value="1" selected>آری</option>
+                </select>
             </div>
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">افزودن تصویر</label>
-                <input type="file" class="form-control custom_input file text-center" name="pic[]">
-
+                <input type="file" class="form-control custom_input file text-center" name="personal_pic">
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">افزودن مدارک</label>
                 <input type="file" class="form-control custom_input file  text-center" name="pic[]">
-
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">افزودن مدارک</label>
+                <input type="file" class="form-control custom_input file  text-center" name="pic[]">
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">افزودن مدارک</label>
+                <input type="file" class="form-control custom_input file  text-center" name="pic[]">
             </div>
             <div class="col-sm-12">
 
@@ -106,8 +128,16 @@ require 'views/adminPanel.php';
         </form>
         <script type="text/javascript">
             $(document).ready(function () {
-                $(".date4").MdPersianDateTimePicker({
+                $(".date3").MdPersianDateTimePicker({
                     targetDateSelector: "#inputDate3",
+                    isGregorian: false
+                });
+                $(".date4").MdPersianDateTimePicker({
+                    targetDateSelector: "#inputDate4",
+                    isGregorian: false
+                });
+                $(".date5").MdPersianDateTimePicker({
+                    targetDateSelector: "#inputDate5",
                     isGregorian: false
                 })
             });

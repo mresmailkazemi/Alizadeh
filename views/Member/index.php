@@ -63,16 +63,14 @@ require 'views/adminPanel.php';
                         ?>
                     </td>
                     <td><?=$row['parentname']?></td>
-                    <td><img src="<?=URL?>/public/img/member/<?=$row['userid']?>/persnoal.jpg" width="80px" height="90px"></td>
+                    <td><img src="<?=URL?>public/img/member/<?=$row['userid']?>/pic.jpg" width="80px" height="90px"></td>
                     <td><?=$row['status']?></td>
                     <td>
                         <?php
                         $status=Model::getStatus($userInfoBasic['statusId']);
                         echo $status['title'];
-
                         ?>
                     </td>
-
                 </tr>
                 </tbody>
                 <?php $i++ ?>
