@@ -149,4 +149,14 @@ function uploadPersonalPic($id)
         imagejpeg($dst, $pathToSave, 95);
         return $dst;
     }
+    function sendSms()
+    {
+
+
+
+
+
+
+
+    }
 }
