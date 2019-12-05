@@ -42,7 +42,7 @@ class model_message extends model
         $response2 = json_decode($response2);
         $res_code = $response2[0];
         $res_data = $response2[1];
-        $this->updateCounterSms($mobile);
+        $this->updateCounterSms(sizeof($mobile));
     }
 //    function updateCount($ids)
 //    {
