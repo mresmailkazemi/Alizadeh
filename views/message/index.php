@@ -5,6 +5,26 @@ require 'views/adminPanel.php';
 
 <div class="container">
     <form action="<?=URL?>message/send" method="post">
+        <?php
+        if (isset($_GET['error'])) {
+            ?>
+            <div style="padding: .75rem .25rem;text-align: center" class="alert alert-danger mt-2">
+                <?php
+                echo $_GET['error']
+                ?>
+            </div>
+        <?php } ?>
+        <?php
+        if (isset($_GET['success'])) {
+            ?>
+
+            <div style="padding: .75rem .25rem;text-align: center" class="alert alert-success mt-2">
+                <?php
+                echo $_GET['success']
+                ?>
+            </div>>
+        <?php } ?>
+
    <div class="row">
        <div class="col-md-2 mt-4 p-0">
 <b class="m-2 text-xlarge">نوع گیرنده</b>

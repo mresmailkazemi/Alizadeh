@@ -49,7 +49,7 @@ class model_addMember extends model
 
     function forwardInfo($userId)
     {
-        $sql = "INSERT INTO tbl_user_info ( sex, birthday, dateCreat, family,parentname,name,Address,status,userid) VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO tbl_user_info ( sex, birthday, dateCreat, family,parentname,name,Address,userid) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $_POST['sex']);
         $stmt->bindValue(2, $_POST['birthday']);
@@ -58,8 +58,7 @@ class model_addMember extends model
         $stmt->bindValue(5, $_POST['parentname']);
         $stmt->bindValue(6, @$_POST['name']);
         $stmt->bindValue(7, $_POST['Address']);
-        $stmt->bindValue(8, 3);
-        $stmt->bindValue(9, $userId);
+        $stmt->bindValue(8, $userId);
 
         $stmt->execute();
     }
@@ -159,7 +158,7 @@ class model_addMember extends model
         return $dst;
     }
 
-    function sendSms($mobile,$name)
+    function sendSms($mobile,$family)
     {
 
 
@@ -168,16 +167,13 @@ class model_addMember extends model
         $from = "+983000505";
         $pattern_code = "oxwi8vg0t5";
         $to = array($mobile);
-        $input_data = array("name" => $name);
+        $input_data = array("name" => $family);
         $url = "https://ippanel.com/patterns/pattern?username=" . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
         $handler = curl_init($url);
         curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($handler, CURLOPT_POSTFIELDS, $input_data);
         curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($handler);
-        echo $response;
-
-
         $this->updateCounterSms(sizeof($mobile));
     }
 }

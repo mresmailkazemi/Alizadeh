@@ -38,12 +38,25 @@ class model_message extends model
         curl_setopt($handler, CURLOPT_POSTFIELDS, $param);
         curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
         $response2 = curl_exec($handler);
-
         $response2 = json_decode($response2);
         $res_code = $response2[0];
         $res_data = $response2[1];
-        $this->updateCounterSms(sizeof($mobile));
+        return $res_data;
     }
+    function infoMessage ($res_data,$mobile){
+
+        $sql="INSERT INTO tbl_message (balakcode,text,status,numbers,dataCreate,message_type) value(?,?,?,?,?,?)";
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bindValue(1, $res_data);
+        $stmt->bindValue(2, $_POST['text']);
+        $stmt->bindValue(3, 3);
+        $stmt->bindValue(4,sizeof($mobile));
+        $stmt->bindValue(5,date('Y-m-d H:i:s'));
+        $stmt->bindValue(6,$_POST['how_to']);
+        $stmt->execute();
+
+    }
+
 //    function updateCount($ids)
 //    {
 //        $id=join(',',$ids);

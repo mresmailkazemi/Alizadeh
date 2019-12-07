@@ -56,7 +56,7 @@
                         <li id="request">
                             <a href="<?= URL ?>Debtors/index" class="text-center position-relative">
                                 <i class="fas fa-dollar-sign fa-2x text-danger"></i>
-                                <span class="font12 d-block">شهریه</span>
+                                <span class="font12 d-block">بدهکاران</span>
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
