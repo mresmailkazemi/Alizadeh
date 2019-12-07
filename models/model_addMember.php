@@ -13,14 +13,11 @@ class model_addMember extends model
         if (@$_POST['name'] == null || @$_POST['family'] == null || @$_POST['mobile'] == null) {
             return $flag = "فیلد های اجباری نمی تواند خالی باشد";
         }
-
         return $flag;
-
     }
 
     function insertmobile()
     {
-
         $pass = Model::generateHash('alizadeh');
         $sql = "INSERT INTO tbl_user (mobile, password, statusId) VALUES (?,?,?)";
         $stmt = self::$conn->prepare($sql);
@@ -32,7 +29,6 @@ class model_addMember extends model
 
     function insertuition($userId)
     {
-
         $sql = "INSERT INTO tbl_tuition (userid,start_date,end_date) VALUES (?,?,?)";
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $userId);
@@ -49,7 +45,7 @@ class model_addMember extends model
 
     function forwardInfo($userId)
     {
-        $sql = "INSERT INTO tbl_user_info ( sex, birthday, dateCreat, family,parentname,name,Address,status,userid) VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO tbl_user_info ( sex, birthday, dateCreat, family,parentname,name,Address,userid) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $_POST['sex']);
         $stmt->bindValue(2, $_POST['birthday']);
@@ -58,8 +54,7 @@ class model_addMember extends model
         $stmt->bindValue(5, $_POST['parentname']);
         $stmt->bindValue(6, @$_POST['name']);
         $stmt->bindValue(7, $_POST['Address']);
-        $stmt->bindValue(8, 3);
-        $stmt->bindValue(9, $userId);
+        $stmt->bindValue(8, $userId);
 
         $stmt->execute();
     }

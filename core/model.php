@@ -9,8 +9,23 @@ class Model
         self::$conn = new PDO('mysql:host=localhost;dbname=alizadeh', 'root', '');
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$conn->exec('set names utf8');
+        require_once 'public/Shamsi/jdf.php';
     }
-
+    public static function miladiToShamsi($date, $separate = "")
+    {
+        $ex = explode('-', $date);
+        if ($separate == "") {
+            return gregorian_to_jalali($ex[0], $ex[1], $ex[2]);
+        } else {
+            return gregorian_to_jalali($ex[0], $ex[1], $ex[2], '/');
+        }
+    }
+    public function changeDate($dateShamsi)
+    {
+        $expire = explode('/', $dateShamsi);
+        $expire = jalali_to_gregorian($expire[0], $expire[1], $expire[2], '-');
+        return date("Y-m-d", strtotime($expire));
+    }
     function doselect($sql, $values = [], $fetch = '', $fetchstyle = PDO::FETCH_ASSOC)
     {
 
@@ -59,11 +74,7 @@ class Model
         $this->doQuery("UPDATE tbl_option SET val=val+?",array($num));
     }
 
-    function getMember()
-    {
-        $sql = "SELECT * FROM tbl_user_info";
-        return $this->doselect($sql);
-    }
+
     public static function getStatus($id)
     {
         $sql = "SELECT * FROM status where id=?";
@@ -80,6 +91,20 @@ class Model
         $stmt->bindValue(1,$id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
-
+    }
+    public static function getIdGiveCredit($id)
+    {
+        $sql = "SELECT * FROM tbl_tuition where userId=?";
+        $stmt=self::$conn->prepare($sql);
+        $stmt->bindValue(1,$id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public static function getAllStatus()
+    {
+        $sql = 'SELECT * FROM status';
+        $stmt = self::$conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(Pdo::FETCH_ASSOC);
     }
 }

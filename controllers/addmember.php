@@ -40,7 +40,6 @@ class addmember extends controller
                        $this->modelobject->uploadImg($countImg, $userid['id']);
             }
             if (!empty($_FILES['personal_pic'])) {
-                echo "asd";
                 $this->modelobject->uploadPersonalPic($userid['id']);
             }
             if($_POST['send_sms']==1)

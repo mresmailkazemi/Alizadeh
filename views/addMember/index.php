@@ -55,13 +55,10 @@ require 'views/adminPanel.php';
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">نام خانوادگی</label>
                 <input type="text" class="form-control must_input" id="family" placeholder="اجباری " name="family">
-
-
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">نام پدر</label>
                 <input type="text" class="form-control custom_input" id="family" name="parentname">
-
             </div>
             <div class="form-group col-md-6 mb-2 sex">
                 <span for="name" class="w-25 text-center">جنسیت : </span>
