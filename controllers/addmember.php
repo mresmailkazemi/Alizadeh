@@ -12,13 +12,11 @@ class addmember extends controller
         parent::__construct();
         session_start();
         if (!isset($_SESSION['admin']))
-
             header('location:' . URL . 'login/index');
     }
 
     function index()
     {
-
         $this->view('addMember/index', array(), 1, 1);
     }
 
@@ -43,12 +41,11 @@ class addmember extends controller
                 $this->modelobject->uploadPersonalPic($userid['id']);
             }
             if($_POST['send_sms']==1)
-                $this->modelobject->sendSms($_POST['mobile'],"ورشکار گرامی ".$_POST['family']." ");
+                $this->modelobject->sendSms($_POST['mobile'],$_POST['family']." ");
             header('location:' . URL . 'addmember/index?success=باموفقیت ثبت شد');
             return;
         }else
             header('location:' . URL . 'addmember/index?error=این شماره قبلا ثبت شده است');
         return;
     }
-
 }

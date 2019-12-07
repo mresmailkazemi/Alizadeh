@@ -23,7 +23,7 @@ class model_addMember extends model
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $_POST['mobile']);
         $stmt->bindValue(2, $pass);
-        $stmt->bindValue(3, 3);
+        $stmt->bindValue(3, 1);
         $stmt->execute();
     }
 
@@ -39,8 +39,7 @@ class model_addMember extends model
 
     function getUserId()
     {
-
-        return $this->doselect('SELECT  id FROM tbl_user where mobile=?', array($_POST['mobile']), 1);
+        return $this->doselect('SELECT id FROM tbl_user where mobile=?', array($_POST['mobile']), 1);
     }
 
     function forwardInfo($userId)
@@ -55,7 +54,6 @@ class model_addMember extends model
         $stmt->bindValue(6, @$_POST['name']);
         $stmt->bindValue(7, $_POST['Address']);
         $stmt->bindValue(8, $userId);
-
         $stmt->execute();
     }
 
@@ -77,7 +75,6 @@ class model_addMember extends model
                 unlink($target);
             }
         }
-
     }
 
     function uploadImg($countImg, $id)
@@ -156,14 +153,12 @@ class model_addMember extends model
 
     function sendSms($mobile,$family)
     {
-
-
         $username = "faraz09196145343";
         $password = '0371477905';
         $from = "+983000505";
-        $pattern_code = "oxwi8vg0t5";
+        $pattern_code = "ft6we0n86g";
         $to = array($mobile);
-        $input_data = array("name" => $family);
+        $input_data = array("name" => $family,"code"=>"125");
         $url = "https://ippanel.com/patterns/pattern?username=" . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
         $handler = curl_init($url);
         curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");

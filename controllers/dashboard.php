@@ -1,4 +1,5 @@
 <?php
+
 class dashboard extends controller
 {
 
@@ -9,11 +10,14 @@ class dashboard extends controller
         if (!isset($_SESSION['admin']))
             header('location:' . URL . 'login/index');
     }
-
-
     function index()
     {
+        $this->view('dashboard/index', array(), 1, 1);
+    }
 
-        $this->view('dashboard/index',array(),1,1);
+    function exitPanel()
+    {
+        session_destroy();
+        header('location:' . URL . 'index');
     }
 }

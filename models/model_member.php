@@ -68,7 +68,7 @@ class model_member extends model
         if ($status != "") {
             $conditions[] = 'WHERE statusId=' . $status . '';
         } else
-            $conditions[] = 'WHERE statusId=3';
+            $conditions[] = 'WHERE statusId=1';
 
         if ($mobile != "") {
             $conditions[] = 'AND mobile=' . $mobile . '';

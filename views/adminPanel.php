@@ -42,14 +42,14 @@
                         <li id="request">
                             <a href="<?= URL ?>addMember/index" class="text-center position-relative">
                                 <i class="fas fa-user-plus fa-2x text-danger"></i>
-                                <span class="font12 d-block">افزودن اعضا</span>
+                                <span class="font12 d-block">ثبت ورزشکار</span>
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
                         <li id="request">
                             <a href="<?= URL ?>Member/index" class="text-center position-relative">
                                 <i class="fas fa-users fa-2x text-danger"></i>
-                                <span class="font12 d-block">اعضای باشگاه</span>
+                                <span class="font12 d-block">ورزشکاران</span>
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
@@ -72,6 +72,12 @@
                                 <i class="fas fa-cog fa-2x text-danger"></i>
                                 <span class="font12 d-block">تنظیمات</span>
                                 <span class="font13 bg-white text-danger counter_span"></span>
+                            </a>
+                        </li>
+                        <li id="comphistory">
+                            <a href="<?= URL ?>dashboard/exitPanel" class="text-center">
+                                <i class="fa fa-sign-out-alt fa-2x text-danger"></i>
+                                <span class="display-block font12 d-block">خروج</span>
                             </a>
                         </li>
                     </ul>

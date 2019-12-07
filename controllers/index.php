@@ -24,9 +24,6 @@ class index extends controller
       $this->view('index/index');
     }
 
-
-
-
 }
 
 ?>

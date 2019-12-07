@@ -12,7 +12,7 @@ require 'views/adminPanel.php';
             <button class="btn btn-danger" data-href="<?= URL ?>Member/Delete" onclick="submitHrefandFrom(this)">حذف
                 کاربر
             </button>
-            <a href="<?= URL ?>addMember/index" class="btn btn-success float-left text-white"> اعضا
+            <a href="<?= URL ?>addMember/index" class="btn btn-success float-left text-white"> ورزشکارجدید
                 <i class="fa fa-plus"></i>
             </a>
             <button class="btn btn-warning" data-href="<?= URL ?>Member/Archive" onclick="submitHrefandFrom(this)">
@@ -37,7 +37,7 @@ require 'views/adminPanel.php';
             <table class="table table-striped table-hover table-bordered text-center">
                 <thead class="bg-dark text-white">
                 <tr>
-                    <th>ردیف</th>
+                    <th>کدورزشکار</th>
                     <th>انتخاب</th>
                     <th>جنسیت</th>
                     <th>نام</th>
@@ -56,7 +56,7 @@ require 'views/adminPanel.php';
                     ?>
                     <tbody>
                     <tr>
-                        <td><?= $i ?></td>
+                        <td><?= $row['userid'] ?></td>
                         <td><input name="delitem[]" value="<?= $row['userid'] ?>" type="checkbox"></td>
                         <td><?= $row['sex'] ?></td>
                         <td><?= $row['name'] ?></td>
