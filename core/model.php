@@ -6,6 +6,7 @@ class Model
 
     function __construct()
     {
+        date_default_timezone_set("Asia/Tehran");
         self::$conn = new PDO('mysql:host=localhost;dbname=alizadeh', 'root', '');
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$conn->exec('set names utf8');

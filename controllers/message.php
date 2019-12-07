@@ -22,12 +22,20 @@ class message extends controller
 
     function send()
     {
+
         if ($_POST['how_to'] == 2)
             $mobile = $this->getMemberMobile();
         else
             $mobile = $this->getDebtorsMobile();
-        $this->modelobject->sendSms($mobile, $_POST['text']);
 
+       $check=$this->checkMobile($mobile);
+if($check){
+        $result = $this->modelobject->sendSms($mobile, $_POST['text']);
+        if (!empty($result) && $result!=0) {
+            $this->modelobject->infoMessage($result, $mobile);
+            header('location:' . URL . 'message/index?success=پیام شما با موفقیت ارسال شد');
+        }
+}
     }
 
     function getMemberMobile()
@@ -38,5 +46,15 @@ class message extends controller
     function getDebtorsMobile()
     {
         return $this->modelobject->getMobileDebtorMember();
+    }
+
+    function checkMobile($mobile)
+    {
+        if (empty($_POST['text']) || empty($mobile)) {
+            header('location:' . URL . 'message/index?error=گیرنده یا متن پیام یافت نشد');
+            return false;
+        }
+        return true;
+
     }
 }
