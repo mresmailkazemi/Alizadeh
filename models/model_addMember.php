@@ -31,7 +31,10 @@ class model_addMember extends model
         $stmt->bindValue(3, 1);
         $stmt->execute();
     }
-
+function getTuitionEndDate($id)
+{
+    return $this->doselect('SELECT end_date FROM tbl_tuition where userId=?', array($id), 1);
+}
     function updateInfo($id)
     {
         $_POST['birthday'] = $this->changeDate($_POST['birthday']);
@@ -40,7 +43,7 @@ class model_addMember extends model
 
     function updateMobile($id)
     {
-        $this->doQuery("UPDATE tbl_user set mobile=? where id=?", array($id));
+        $this->doQuery("UPDATE tbl_user set mobile=? where id=?", array($_POST['mobile'],$id));
     }
 
     function updateTuition($id)
@@ -116,7 +119,7 @@ class model_addMember extends model
             //Setup our new file path
             $newFilePath = "public/img/member/$folder/";
             $ext = strtolower(pathinfo($_FILES['pic']['name'][$i], PATHINFO_EXTENSION));
-            $newName = 'pic' . $i. '.';
+            $newName = 'pic' . $i.$userid. '.';
             $target = $newFilePath . basename($newName . '.' . $ext);  //with extension
             $mainimage = $newFilePath . $newName . $ext;  //with out extension
             //Upload the file into the temp dir

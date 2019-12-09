@@ -59,23 +59,27 @@ class addmember extends controller
     function update($id)
     {
         $user=$this->modelobject->getMobile($id);
+        $tuition=$this->modelobject->getTuitionEndDate($id);
+
         $this->modelobject->updateInfo($id);
         $this->modelobject->updateTuition($id);
-
-        if($user['mobile']!=$_POST['mobile']) {
-            $userid = $this->modelobject->getUserId();
-            if (empty($userid))
-                $this->modelobject->updateMobile($id);
-            else
-                header('location:' . URL . 'addmember/index/'.$id.'?error=این شماره قبلا ثبت شده است');
-        }
         if (!empty($_FILES['personal_pic'])) {
             $this->modelobject->uploadPersonalPic($id);
         }
         $countImg = count(array_filter(@$_FILES['pic']['name']));
         if (count(@$_FILES['pic']['name']) > 0) {
-            $this->modelobject->uploadImg($countImg, $userid['id'],$id);
+            $this->modelobject->uploadImg($countImg, $id,$id);
         }
+        if($user['mobile']!=$_POST['mobile']) {
+            $userid = $this->modelobject->getUserId();
+            if (empty($userid))
+                $this->modelobject->updateMobile($id);
+            else {
+                header('location:' . URL . 'addmember/index/' . $id . '?error=این شماره قبلا ثبت شده است');
+                return;
+            }
+        }
+
 
         header('location:' . URL . 'addmember/index/'.$id.'?success=باموفقیت ثبت شد');
     }
