@@ -62,27 +62,13 @@ This set of fonts are used in this project under the license: (.....)
     url('../font/woff/robotobold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
     url('../font/ttf/robotobold.ttf') format('truetype');
 }
-
-@font-face {
-    font-family: roboto;
-    font-style: normal;
-    font-weight: 300;
-    src: url('../font/eot/robotolight.eot');
-    src: url('../font/eot/robotolight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-    url('../font/woff2/robotolight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-    url('../font/woff/robotolight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('../font/ttf/robotolight.ttf') format('truetype');
+.text-number{
+    font-family: Roboto;
 }
+body {
 
-@font-face {
-    font-family: roboto;
-    font-style: normal;
-    font-weight: normal;
-    src: url('../font/eot/robotoregular.eot');
-    src: url('../font/eot/robotoregular.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-    url('../font/woff2/robotoregular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-    url('../font/woff/robotoregular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('../font/ttf/robotoregular.ttf') format('truetype');
+    font-family: iranyekan !important;
+    font-size: 0.9rem;
 }
 
 .text-small {
@@ -90,6 +76,9 @@ This set of fonts are used in this project under the license: (.....)
 }
 .text-xsmall {
     font-size: 0.6em;
+}
+.text-middle{
+    font-size: 1em;
 }
 .text-large {
     font-size: 1.2em;

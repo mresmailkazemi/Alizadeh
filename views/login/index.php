@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="<?=URL?>public/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?=URL?>public/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?=URL?>public/css/iranyekan.css">
-    <link rel="stylesheet" href="../../public/css/costomstyle.css">
+    <link rel="stylesheet" href="../../public/css/customstyle.css">
     <!--===============================================================================================-->
 </head>
 <body>

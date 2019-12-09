@@ -16,6 +16,11 @@ class model_addMember extends model
         return $flag;
     }
 
+    function getMemberInfo($edit)
+    {
+        return $this->doselect("SELECT i.*,u.mobile,t.end_date,t.start_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id where i.userId=?", array($edit), 1);
+    }
+
     function insertmobile()
     {
         $pass = Model::generateHash('alizadeh');
@@ -27,8 +32,28 @@ class model_addMember extends model
         $stmt->execute();
     }
 
+    function updateInfo($id)
+    {
+        $_POST['birthday'] = $this->changeDate($_POST['birthday']);
+        $this->doQuery("UPDATE tbl_user_info set sex=?, birthday=?, family=?,parentname=?,name=?,Address=?,code_meli=? where userid=?", array($_POST['sex'], $_POST['birthday'], $_POST['family'], $_POST['parentname'], $_POST['name'], $_POST['Address'], $_POST['code_meli'], $id));
+    }
+
+    function updateMobile($id)
+    {
+        $this->doQuery("UPDATE tbl_user set mobile=? where id=?", array($id));
+    }
+
+    function updateTuition($id)
+    {
+        $_POST['start_date'] = $this->changeDate($_POST['start_date']);
+        $_POST['end_date'] = $this->changeDate($_POST['end_date']);
+        $this->doQuery("UPDATE tbl_tuition set start_date=?,end_date=? where userId=?", array($_POST['start_date'], $_POST['end_date'], $id));
+    }
+
     function insertuition($userId)
     {
+        $_POST['start_date'] = $this->changeDate($_POST['start_date']);
+        $_POST['end_date'] = $this->changeDate($_POST['end_date']);
         $sql = "INSERT INTO tbl_tuition (userid,start_date,end_date) VALUES (?,?,?)";
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $userId);
@@ -44,7 +69,8 @@ class model_addMember extends model
 
     function forwardInfo($userId)
     {
-        $sql = "INSERT INTO tbl_user_info ( sex, birthday, dateCreat, family,parentname,name,Address,userid) VALUES (?,?,?,?,?,?,?,?)";
+        $_POST['birthday'] = $this->changeDate($_POST['birthday']);
+        $sql = "INSERT INTO tbl_user_info (sex, birthday, dateCreat, family,parentname,name,Address,userid,code_meli) VALUES (?,?,?,?,?,?,?,?,?)";
         $stmt = self::$conn->prepare($sql);
         $stmt->bindValue(1, $_POST['sex']);
         $stmt->bindValue(2, $_POST['birthday']);
@@ -54,6 +80,7 @@ class model_addMember extends model
         $stmt->bindValue(6, @$_POST['name']);
         $stmt->bindValue(7, $_POST['Address']);
         $stmt->bindValue(8, $userId);
+        $stmt->bindValue(9, @$_POST['code_meli']);
         $stmt->execute();
     }
 
@@ -69,7 +96,6 @@ class model_addMember extends model
         $target = $newFilePath . basename($newName . '.' . $ext);  //with extension
         $mainimage = $newFilePath . $newName . $ext;  //with out extension
         if (move_uploaded_file($tmpFilePath, $target)) {
-
             $this->create_thumbnail($target, $mainimage, 1024, 1024);
             if (file_exists($target)) {
                 unlink($target);
@@ -77,7 +103,7 @@ class model_addMember extends model
         }
     }
 
-    function uploadImg($countImg, $id)
+    function uploadImg($countImg, $id,$userid='')
     {
         $pics = array();
         $folder = $id;
@@ -90,7 +116,7 @@ class model_addMember extends model
             //Setup our new file path
             $newFilePath = "public/img/member/$folder/";
             $ext = strtolower(pathinfo($_FILES['pic']['name'][$i], PATHINFO_EXTENSION));
-            $newName = 'pic' . $i . '.';
+            $newName = 'pic' . $i. '.';
             $target = $newFilePath . basename($newName . '.' . $ext);  //with extension
             $mainimage = $newFilePath . $newName . $ext;  //with out extension
             //Upload the file into the temp dir
@@ -151,20 +177,23 @@ class model_addMember extends model
         return $dst;
     }
 
-    function sendSms($mobile,$family)
+    function sendSms($mobile, $family, $id)
     {
-        $username = "faraz09196145343";
-        $password = '0371477905';
-        $from = "+983000505";
-        $pattern_code = "ft6we0n86g";
-        $to = array($mobile);
-        $input_data = array("name" => $family,"code"=>"125");
-        $url = "https://ippanel.com/patterns/pattern?username=" . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
-        $handler = curl_init($url);
-        curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($handler, CURLOPT_POSTFIELDS, $input_data);
-        curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($handler);
-        $this->updateCounterSms(sizeof($mobile));
+        $check = $this->is_connected();
+        if ($check == 1) {
+            $username = "faraz09196145343";
+            $password = '0371477905';
+            $from = "+983000505";
+            $pattern_code = "ft6we0n86g";
+            $to = array($mobile);
+            $input_data = array("name" => $family, "code" => $id);
+            $url = "https://ippanel.com/patterns/pattern?username=" . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
+            $handler = curl_init($url);
+            curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($handler, CURLOPT_POSTFIELDS, $input_data);
+            curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($handler);
+            $this->updateCounterSms(1);
+        }
     }
 }

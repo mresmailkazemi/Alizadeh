@@ -50,29 +50,25 @@ require 'views/adminPanel.php';
                 foreach ($result as $row) {
                     ?>
                     <tbody>
-                    <tr>
-                        <td><?= $row['userid'] ?></td>
+                    <tr class="text-middle">
+                        <td class="text-number"><?= $row['userid'] ?></td>
                         <td><input name="delitem[]" value="<?= $row['userid'] ?>" type="checkbox"></td>
                         <td><?= $row['sex'] ?></td>
                         <td><?= $row['name'] ?></td>
                         <td><?= $row['family'] ?></td>
-                        <td><?php
-                            $userInfoBasic = Model::getMobile($row['userid']);
-                            echo $userInfoBasic['mobile'];
-                            ?>
+                        <td><?=$row['mobile'] ?>
                         </td>
                         <td><?= $row['parentname'] ?></td>
                         <td><img src="<?= URL ?>public/img/member/<?= $row['userid'] ?>/pic.jpg" width="80px"
                                  height="90px"></td>
                         <td>
                             <?php
-                            $tuition = Model::getIdGiveCredit($row['userid']);
-                            echo Model::miladiToShamsi($tuition['end_date'], "/")
+                            echo Model::miladiToShamsi($row['end_date'], "/")
                             ?>
                         </td>
                         <td>
                             <?php
-                            $status = Model::getStatus($userInfoBasic['statusId']);
+                            $status = Model::getStatus($row['statusId']);
                             echo $status['title'];
                             ?>
                         </td>

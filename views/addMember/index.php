@@ -45,62 +45,80 @@ require 'views/adminPanel.php';
                 ?>
             </div>
         <?php } ?>
+        <?php
+        if(!isset($data['info'])){
+        ?>
         <form class="form-inline was-validated mb-3" action="<?= URL ?>addmember/insert" method="post" enctype="multipart/form-data">
-
+            <?php
+            }else{
+            ?>
+            <form class="form-inline was-validated mb-3" action="<?= URL ?>addmember/update/<?=$data['info']['userid']?>" method="post" enctype="multipart/form-data">
+                <?php
+                }
+                ?>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">نام</label>
-                <input type="text" class="form-control must_input" id="name" placeholder="اجباری" name="name">
+                <input type="text" class="form-control must_input" id="name" placeholder="اجباری" name="name" value="<?=@$data['info']['name']?>">
 
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">نام خانوادگی</label>
-                <input type="text" class="form-control must_input" id="family" placeholder="اجباری " name="family">
+                <input type="text" class="form-control must_input" id="family" placeholder="اجباری " name="family" value="<?=@$data['info']['family']?>">
+            </div>
+            <div class="form-group col-md-6 mb-2">
+                <label for="name" class="w-25">کدملی</label>
+                <input type="text" class="form-control custom_input" id="code_meli" name="code_meli" maxlength="10" value="<?=@$data['info']['code_meli']?>">
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">نام پدر</label>
-                <input type="text" class="form-control custom_input" id="family" name="parentname">
+                <input type="text" class="form-control custom_input" id="family" name="parentname" value="<?=@$data['info']['parentname']?>">
             </div>
             <div class="form-group col-md-6 mb-2 sex">
                 <span for="name" class="w-25 text-center">جنسیت : </span>
                 <label class="ml-1">مرد</label>
-                <input type="radio" name="sex" value="1" checked>
+                <input type="radio" name="sex" value="1" <?php if(@$data['info']['sex']==1) echo 'checked'?> checked>
                 <label class="ml-1 mr-3">زن</label>
-                <input type="radio" name="sex" value="2">
+                <input type="radio" name="sex" value="2" <?php if(@$data['info']['sex']==2) echo 'checked'?>>
 
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">ادرس</label>
-                <textarea type="text" class="form-control custom_input" placeholder="ادرس " name="Address" required></textarea>
+                <textarea type="text" class="form-control custom_input" placeholder="ادرس " name="Address" required><?=@$data['info']['Address']?></textarea>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-group col-md-6">
                 <label for="name" class="w-25">شماره همراه</label>
-                <input type="text" class="form-control must_input " id="mobile" placeholder="اجباری" name="mobile" maxlength="11">
+                <input type="text" class="form-control must_input " id="mobile" placeholder="اجباری" name="mobile" maxlength="11" value="<?=@$data['info']['mobile']?>">
 
             </div>
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">تاریخ تولد</label>
-                <input type="text" id="inputDate3" class="form-control custom_input date3" name="birthday">
+                <input type="text" id="inputDate3" class="form-control" name="birthday" placeholder="اختیاری" value="<?php if(isset($data['info'])) echo Model::miladiToShamsi($data['info']['birthday'],"/") ?>">
             </div>
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">شروع اعتبار</label>
-                <input type="text" id="inputDate4" class="form-control must_input date4"  placeholder="اجباری" name="start_date">
+                <input type="text" id="inputDate2" class="form-control" name="start_date" placeholder="اجباری" value="<?php if(isset($data['info'])) echo Model::miladiToShamsi($data['info']['start_date'],"/")?>">
 
             </div>
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">پایان اعتبار</label>
-                <input type="text" id="inputDate5" class="form-control must_input date5"   placeholder="اجباری" name="end_date">
-
+                <input type="text" id="inputDate1" class="form-control" name="end_date" placeholder="اجباری" value="<?php if(isset($data['info'])) echo  Model::miladiToShamsi($data['info']['end_date'],"/")?>">
             </div>
-            <div class="form-group col-md-6 mb-2">
-                <label for="name" class="w-25">ارسال پیامک خوش آمدگویی</label>
-                <select class="form-control" name="send_sms">
-                    <option value="0">خیر</option>
-                    <option value="1" selected>آری</option>
-                </select>
-            </div>
+            <?php
+            if(!isset($data['info'])) {
+                ?>
+                <div class="form-group col-md-6 mb-2">
+                    <label for="name" class="w-25">ارسال پیامک خوش آمدگویی</label>
+                    <select class="form-control" name="send_sms">
+                        <option value="0">خیر</option>
+                        <option value="1" selected>آری</option>
+                    </select>
+                </div>
+                <?php
+            }
+            ?>
 
             <div class="form-group col-md-6 mb-2">
                 <label for="name" class="w-25">افزودن تصویر</label>
@@ -125,18 +143,18 @@ require 'views/adminPanel.php';
         </form>
         <script type="text/javascript">
             $(document).ready(function () {
-                $(".date3").MdPersianDateTimePicker({
-                    targetDateSelector: "#inputDate3",
-                    isGregorian: false
+                $('#inputDate1').MdPersianDateTimePicker({
+                    targetTextSelector: '#inputDate1',
+                    englishNumber:true
                 });
-                $(".date4").MdPersianDateTimePicker({
-                    targetDateSelector: "#inputDate4",
-                    isGregorian: false
+                $('#inputDate2').MdPersianDateTimePicker({
+                    targetTextSelector: '#inputDate2',
+                    englishNumber:true
                 });
-                $(".date5").MdPersianDateTimePicker({
-                    targetDateSelector: "#inputDate5",
-                    isGregorian: false
-                })
+                $('#inputDate3').MdPersianDateTimePicker({
+                    targetTextSelector: '#inputDate3',
+                    englishNumber:true
+                });
             });
         </script>
 

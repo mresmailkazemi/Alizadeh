@@ -23,7 +23,7 @@ class model_Debtors extends model
 
     function getDebtors()
     {
-        return $this->doselect("SELECT i.*,u.mobile,u.statusId FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE t.end_date<CURDATE() ORDER BY id desc ");
+        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE t.end_date<CURDATE() ORDER BY t.end_date desc ");
     }
     function getMobileDebtorMember()
     {

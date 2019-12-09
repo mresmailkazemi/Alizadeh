@@ -20,7 +20,7 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/iranyekan.css">
-    <link rel="stylesheet" href="public/css/costomstyle.css">
+    <link rel="stylesheet" href="public/css/customstyle.css">
 </head>
 <body>
 <header class="main_menu home_menu">

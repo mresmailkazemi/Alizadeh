@@ -21,9 +21,6 @@
                        placeholder="نام خانوادگی" value="<?= @$_POST['family'] ?>">
             </div>
             <div class="col-md-2 mb-3">
-                <input  type="text" id="inputDate1" class="form-control" name="end_date" placeholder="تاریخ اعتبار">
-            </div>
-            <div class="col-md-2 mb-3">
                 <select name="status" class="form-control" >
                     <option value="">همه</option>
                     <?php
@@ -48,9 +45,3 @@
         </div>
     </form>
 </div>
-<script>
-    $('#inputDate1').MdPersianDateTimePicker({
-        targetTextSelector: '#inputDate1',
-        englishNumber:true
-    });
-</script>

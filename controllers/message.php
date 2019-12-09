@@ -22,20 +22,22 @@ class message extends controller
 
     function send()
     {
-
         if ($_POST['how_to'] == 2)
             $mobile = $this->getMemberMobile();
         else
             $mobile = $this->getDebtorsMobile();
 
-       $check=$this->checkMobile($mobile);
-if($check){
-        $result = $this->modelobject->sendSms($mobile, $_POST['text']);
-        if (!empty($result) && $result!=0) {
-            $this->modelobject->infoMessage($result, $mobile);
-            header('location:' . URL . 'message/index?success=پیام شما با موفقیت ارسال شد');
+        $check = $this->checkMobile($mobile);
+        if ($check) {
+            $result = $this->modelobject->sendSms($mobile, $_POST['text']);
+            print_r($mobile);
+            print_r($result);
+            if (!empty($result) && $result != 0) {
+                $this->modelobject->infoMessage($result, $mobile);
+                header('location:' . URL . 'message/index?success=پیام شما با موفقیت ارسال شد');
+                return;
+            }
         }
-}
     }
 
     function getMemberMobile()

@@ -7,13 +7,10 @@
     <base href="<?=URL?>"/>
     <title>باشگاه علیزاده</title>
     <base href="<?=URL?>">
-    <link rel="icon" href="<?=URL?>/public/img/icon.png">
     <link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="public/library/fontAwsome/css/all.css">
     <link rel="stylesheet" href="<?=URL?>public/css/all.css">
     <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
-    <link rel="stylesheet" href="<?=URL?>public/css/costomstyle.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/customstyle.css">
     <link rel="stylesheet" href="<?=URL?>public/css/stylePersian.css">
     <link rel="stylesheet" href="public/css/fontAwesome/css/all.css">
     <script src="<?=URL?>public/js/jquery-3.3.1.slim.min.js"></script>

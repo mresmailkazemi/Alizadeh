@@ -1,6 +1,5 @@
 <?php
 require 'views/adminPanel.php';
-
 ?>
 
 <div class="container">
@@ -17,12 +16,11 @@ require 'views/adminPanel.php';
         <?php
         if (isset($_GET['success'])) {
             ?>
-
             <div style="padding: .75rem .25rem;text-align: center" class="alert alert-success mt-2">
                 <?php
                 echo $_GET['success']
                 ?>
-            </div>>
+            </div>
         <?php } ?>
 
    <div class="row">

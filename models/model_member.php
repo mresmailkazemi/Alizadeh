@@ -23,7 +23,7 @@ class model_member extends model
 
     function getMember()
     {
-        return $this->doselect("SELECT i.*,u.mobile,u.statusId FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId WHERE statusId=1 ORDER BY id desc ");
+        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id");
     }
 
     function goDelete()
@@ -88,7 +88,7 @@ class model_member extends model
             $conditions[] = 'AND i.userId=' . $id . '';
         }
 
-        $query = 'SELECT i.*,u.mobile,u.statusId FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id';
+        $query = 'SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id';
         $sql = $query;
         if (count($conditions) > 0) {
             $sql .= ' ' . implode(' ', $conditions);
