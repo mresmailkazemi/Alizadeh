@@ -23,7 +23,7 @@ class model_Debtors extends model
 
     function getDebtors()
     {
-        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE t.end_date<CURDATE() ORDER BY t.end_date desc ");
+        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE t.end_date<CURDATE() AND i.sex=? ORDER BY t.end_date desc",array($_SESSION['admin']));
     }
     function getMobileDebtorMember()
     {
@@ -49,8 +49,7 @@ class model_Debtors extends model
         if ($id != "") {
             $conditions[] = 'AND i.userId=' . $id . '';
         }
-        "SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user as u right join tbl_user_info as i ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE statusId=1 AND t.end_date<CURDATE() ORDER BY id desc";
-
+        $conditions[] = 'AND sex=' . $_SESSION['admin'] . '';
         $query = 'SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE t.end_date<CURDATE()';
         $sql = $query;
         if (count($conditions) > 0) {

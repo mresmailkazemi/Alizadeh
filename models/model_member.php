@@ -1,4 +1,5 @@
 <?php
+
 class model_member extends model
 {
     function __construct()
@@ -23,7 +24,7 @@ class model_member extends model
 
     function getMember()
     {
-        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id");
+        return $this->doselect("SELECT i.*,u.mobile,u.statusId,t.end_date FROM tbl_user_info as i LEFT join tbl_user as u ON u.id=i.userId LEFT JOIN tbl_tuition AS t ON t.userId=u.id WHERE sex=?", array($_SESSION['admin']));
     }
 
     function goDelete()
@@ -65,10 +66,10 @@ class model_member extends model
     function searchUser($id, $mobile, $name, $family, $end_time, $status)
     {
         $conditions = array();
+        $conditions[] = 'WHERE sex=' . $_SESSION['admin'] . '';
         if ($status != "") {
-            $conditions[] = 'WHERE statusId=' . $status . '';
-        } else
-            $conditions[] = 'WHERE statusId=1';
+            $conditions[] = 'statusId=' . $status . '';
+        }
 
         if ($mobile != "") {
             $conditions[] = 'AND mobile=' . $mobile . '';
@@ -80,7 +81,7 @@ class model_member extends model
             $conditions[] = 'AND family LIKE"%' . $family . '%"';
         }
         if ($end_time != "") {
-            $end_time=Model::changeDate($end_time);
+            $end_time = Model::changeDate($end_time);
             $conditions[] = 'AND t.end_date LIKE"%' . $end_time . '%"';
         }
 

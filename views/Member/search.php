@@ -25,6 +25,7 @@
             </div>
             <div class="col-md-2 mb-3">
                 <select name="status" class="form-control" >
+                    <option value="">همه</option>
                     <?php
                     foreach (Model::getAllStatus() as $hum) {
                         ?>
