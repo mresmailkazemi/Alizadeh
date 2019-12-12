@@ -161,5 +161,7 @@ require 'views/adminPanel.php';
 
     </div>
 <?php
+if(isset($data['info']))
+require_once 'gallery.php';
 require 'views/adminFooter.php';
 ?>

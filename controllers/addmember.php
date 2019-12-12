@@ -59,7 +59,7 @@ class addmember extends controller
     function update($id)
     {
         $user=$this->modelobject->getMobile($id);
-        $tuition=$this->modelobject->getTuitionEndDate($id);
+       // $tuition=$this->modelobject->getTuitionEndDate($id);
 
         $this->modelobject->updateInfo($id);
         $this->modelobject->updateTuition($id);
