@@ -1,14 +1,50 @@
 <!-- banner part start-->
-<section class="banner_part">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-9">
-                <div class="banner_text text-center">
-                </div>
-            </div>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="public/js/popper.min.js"></script>
+    <script src="public/js/jquery-3.3.1.slim.min.js"></script>
+
+    <script src="public/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="demo" class="carousel" style="margin-top: 60px"  data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active mt-4">
+            <img src="public/img/slider1.jpg" alt="آکادمی" style="background-size: cover" width="100%" >
+        </div>
+        <div class="carousel-item">
+            <img src="public/img/slider2.jpg" alt="علیزاده" style="background-size: cover" width="100%" >
+        </div>
+        <div class="carousel-item">
+            <img src="public/img/slider3.jpg" alt="باشگاه"  style="background-size: cover"width="100%">
         </div>
     </div>
-</section>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
 <!-- banner part start-->
 <!--::exclusive_item_part start::-->
 <section class="our_offer">
@@ -16,7 +52,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-xl-5">
                 <div class="section_tittle">
-                    <h2>می خواهید عضو باشگاه ما بشید</h2>
+                    <h2>امکانات آکادمی علیزاده</h2>
 
                 </div>
             </div>
@@ -24,26 +60,26 @@
         <div class="row justify-content-between">
             <div class="col-lg-12">
                 <div class="single_offer_part">
-                    <div class="single_offer">
-                        <img src="<?=URL?>/public/img/offer_img_1.png" alt="offer_img_1">
+                    <div>
+                        <img src="<?=URL?>/public/img/offer_img_1.jpg" >
 
                     </div>
                 </div>
                 <div class="single_offer_part">
-                    <div class="single_offer">
-                        <img src="<?=URL?>/public/img/offer_img_2.png" alt="offer_img_1">
+                    <div>
+                        <img src="<?=URL?>/public/img/offer_img_2.jpg" alt="offer_img_1">
 
                     </div>
                 </div>
                 <div class="single_offer_part">
-                    <div class="single_offer">
-                        <img src="<?=URL?>/public/img/offer_img_3.png" alt="offer_img_1">
+                    <div>
+                        <img src="<?=URL?>/public/img/offer_img_3.jpg" alt="offer_img_1">
 
                     </div>
                 </div>
                 <div class="single_offer_part">
-                    <div class="single_offer">
-                        <img src="<?=URL?>/public/img/offer_img_4.png" alt="offer_img_1">
+                    <div>
+                        <img src="<?=URL?>/public/img/offer_img_4.jpg" alt="offer_img_1">
 
                     </div>
                 </div>
