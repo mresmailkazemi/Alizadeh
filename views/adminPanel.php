@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <base href="<?=URL?>"/>
+    <base href="<?= URL ?>"/>
     <title>باشگاه علیزاده</title>
-    <base href="<?=URL?>">
-    <link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=URL?>public/css/all.css">
-    <link rel="stylesheet" href="<?=URL?>public/css/iranyekan.css">
-    <link rel="stylesheet" href="<?=URL?>public/css/stylePersian.css">
+    <base href="<?= URL ?>">
+    <link rel="stylesheet" href="<?= URL ?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= URL ?>public/css/all.css">
+    <link rel="stylesheet" href="<?= URL ?>public/css/iranyekan.css">
+    <link rel="stylesheet" href="<?= URL ?>public/css/customstyle.css">
+    <link rel="stylesheet" href="<?= URL ?>public/css/stylePersian.css">
     <link rel="stylesheet" href="public/css/fontAwesome/css/all.css">
-    <script src="<?=URL?>public/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="<?=URL?>public/js/popper.min.js"></script>
-    <script src="<?=URL?>public/js/bootstrap.min.js"></script>
-    <script src="<?=URL?>public/js/k.js"></script>
-    <link href="<?=URL?>public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
-    <script src="<?=URL?>public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
+    <script src="<?= URL ?>public/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="<?= URL ?>public/js/popper.min.js"></script>
+    <script src="<?= URL ?>public/js/bootstrap.min.js"></script>
+    <script src="<?= URL ?>public/js/k.js"></script>
+    <link href="<?= URL ?>public/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet">
+    <script src="<?= URL ?>public/js/jquery.md.bootstrap.datetimepicker.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -56,13 +57,19 @@
                                 <span class="font13 bg-white text-danger counter_span"></span>
                             </a>
                         </li>
-                        <li id="request">
-                            <a href="<?= URL ?>message/index" class="text-center position-relative">
-                                <i class="fas fa-paper-plane fa-2x text-danger"></i>
-                                <span class="font12 d-block">ارسال پیام</span>
-                                <span class="font13 bg-white text-danger counter_span"></span>
-                            </a>
-                        </li>
+                        <?php
+                        if ($_SESSION['admin'] == 1) {
+                            ?>
+                            <li id="request">
+                                <a href="<?= URL ?>message/index" class="text-center position-relative">
+                                    <i class="fas fa-paper-plane fa-2x text-danger"></i>
+                                    <span class="font12 d-block">ارسال پیام</span>
+                                    <span class="font13 bg-white text-danger counter_span"></span>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
                         <li id="request">
                             <a href="<?= URL ?>option/index" class="text-center position-relative">
                                 <i class="fas fa-cog fa-2x text-danger"></i>
