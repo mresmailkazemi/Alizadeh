@@ -31,18 +31,34 @@ require 'views/adminPanel.php';
     <select class="form-control" name="how_to">
         <option value="1">بدهکاران</option>
         <option value="2">همه اعضا</option>
+        <option value="3">سفارشی</option>
     </select>
        </div>
     </div>
+        <div class="form-group mt-5 d-none">
+            <label>شماره گیرنده</label>
+            <input class="col-md-4   form-control" name="mobile">
+        </div>
+
+
         <div class="form-group mt-5 w-100">
             <label for="comment ">متن پیام</label>
             <textarea class="form-control w-100" rows="5" id="comment" name="text"></textarea>
         </div>
+
         <button type="submit" class="btn btn-success w-100 ">ارسال</button>
     </form>
 </div>
 
 
+<script>
+
+    function getCheck(tag){
+
+        var id=$(tag).find(':selected').val();
+      id==3.fadeIn
+    }
+</script>
 <?php
 require 'views/adminFooter.php';
 ?>
